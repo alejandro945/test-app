@@ -1,21 +1,24 @@
 data = [
-    "teachers" = [
-        "teacher" = {
+    teachers = [
+        {
+            "UID": 0,
             "userName": "",
             "password": "",
-            "forms": [
-                "form" = {
-                    "code": 0,
+            "tests": [
+                {
+                    "UID": 0,
+                    "accessCode": 0,
                     "avaible": true,
+                    "description": "",
                     "questions": [
-                        "question" = {
-                            "id": 0,
-                            "title": "",
+                        {
+                            "text": "",
                             "answers": [
-                                "answer" = {
+                                {
                                     "id": 0,
                                     "state": false,
-                                    "text": ""
+                                    "percentage": 0.0,
+                                    "description": ""
                                 }
                             ]
                         }
@@ -24,10 +27,17 @@ data = [
             ]
         }
     ],
-    "students" = [
-        "student" = {
+    students = [
+        {
+            "UID":0,
             "username": "",
-            "password": ""
+            "password": "",
+            "scores": [
+                {
+                    "UIDTest": 0,
+                    "finalGrade": 0.0
+                }
+            ]
         }
     ]
 
