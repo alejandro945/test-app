@@ -1,3 +1,4 @@
-export default function handler(req,res){
+export default function handler(req, res) {
     res.json(req.query.code);
 }
+
