@@ -1,4 +1,8 @@
+import data from "../../../data";
+
 export default function handler(req, res) {
-    res.json(req.query.code);
+    var studentUID = req.query.code;
+    console.log(data.teachers[0].tests);
+    res.json(studentUID)
 }
 

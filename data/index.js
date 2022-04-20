@@ -1,15 +1,15 @@
-data = [
-    teachers = [
+let data = {
+    "teachers": [
         {
-            "UID": 0,
-            "userName": "",
-            "password": "",
+            "id": 1,
+            "userName": "gabrielHijoMio",
+            "password": "12345678",
             "tests": [
                 {
-                    "UID": 0,
-                    "accessCode": 0,
+                    "UID": "d7ceb7d8-c0f1-11ec-9d64-0242ac120002",
+                    "accessCode": 2567,
                     "avaible": true,
-                    "description": "",
+                    "description": "PARCIAL # 2 ELECTROMAGNETISMO - DESCARGA DE UN CONDESADOR",
                     "questions": [
                         {
                             "text": "",
@@ -27,11 +27,11 @@ data = [
             ]
         }
     ],
-    students = [
+    "students" : [
         {
             "UID":0,
-            "username": "",
-            "password": "",
+            "username": "Alejo",
+            "password": "23",
             "scores": [
                 {
                     "UIDTest": 0,
@@ -40,8 +40,9 @@ data = [
             ]
         }
     ]
+}
 
-]
+export default data;
 
 
 
