@@ -1,6 +1,6 @@
 const { default: Head } = require("next/head")
 
-const navBar = () => {
+const NavBar = () => {
     <Head>
         <h1>
             {props.title}
@@ -9,4 +9,4 @@ const navBar = () => {
     </Head>
 }
 
-export default navBar
+export default NavBar

@@ -27,9 +27,9 @@ let data = {
             ]
         }
     ],
-    "students" : [
+    "students": [
         {
-            "UID":0,
+            "UID": 0,
             "username": "Alejo",
             "password": "23",
             "scores": [
@@ -39,6 +39,9 @@ let data = {
                 }
             ]
         }
+    ],
+    "roles": [
+        "Student", "Teacher"
     ]
 }
 
