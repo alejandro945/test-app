@@ -38,7 +38,7 @@ export default function Home() {
       },
       body: JSON.stringify(user)
     }
-    let response = await fetch("http://localhost:3001/api/auth", config)
+    let response = await fetch("http://localhost:3000/api/auth", config)
     let result = await sendAlert(response)
     Mixim(result.m, result.type)
   }
