@@ -30,7 +30,7 @@ let data = {
     "students": [
         {
             "UID": 0,
-            "username": "Alejo",
+            "userName": "Alejo",
             "password": "23",
             "scores": [
                 {
