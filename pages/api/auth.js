@@ -4,10 +4,8 @@ export default function handler(req, res) {
     if (req.method === 'POST') {
         const user = req.body
         if (logIn(user.userName, user.password, user.role)) {
-            console.log("fdf");
             res.status(200).json({ "msg": "Succesfull logged" })
         } else {
-            console.log("f");
             res.status(300).json({ "msg": "Incorrect username or password " })
         }
     }
