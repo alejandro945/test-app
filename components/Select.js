@@ -5,9 +5,8 @@ const Select = ({info,title}) => {
     return (
         <Autocomplete
             disablePortal
-            id="cb-role"
+            id={title}
             options={info}
-            sx={{ width: 500 , m:2}}
             renderInput={(params) => <TextField  required={true} {...params} label={title} />}
         />
     )
