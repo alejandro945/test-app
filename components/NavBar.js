@@ -25,7 +25,7 @@ const StyledFab = styled(Fab)({
 
 
 
-export default function BottomAppBar() {
+export default function BottomAppBar({children}) {
     const router = useRouter()
     const user = userService.get()
     
@@ -35,6 +35,7 @@ export default function BottomAppBar() {
     }
     return (
         <React.Fragment>
+            {children}
             <AppBar position="fixed" color="primary" sx={{ top: 'auto', bottom: 0 }}>
                 <Toolbar>
 
@@ -53,9 +54,9 @@ export default function BottomAppBar() {
                         </Badge>
                     </IconButton>
 
-                    <StyledFab color="secondary" aria-label="add">
+                    {user.role=='Teacher' && <StyledFab color="secondary" aria-label="add">
                         <AddIcon />
-                    </StyledFab>
+                    </StyledFab>}
 
                     <Box sx={{ flexGrow: 1 }} />
                     <Tooltip title="Log out">

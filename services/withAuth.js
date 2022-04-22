@@ -1,6 +1,5 @@
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import { userService } from "./userService";
 
 const withAuth = (WrappedComponent) => {
   return (props) => {

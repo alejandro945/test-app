@@ -9,7 +9,9 @@ let data = {
                     "UID": "d7ceb7d8-c0f1-11ec-9d64-0242ac120002",
                     "accessCode": 2567,
                     "avaible": true,
-                    "description": "PARCIAL # 2 ELECTROMAGNETISMO - DESCARGA DE UN CONDESADOR",
+                    "img": "/public/img/test-1",
+                    "title": "Electromagnetrismo",
+                    "description": "Descarga de un condensador",
                     "questions": [
                         {
                             "text": "",
