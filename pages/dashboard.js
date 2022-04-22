@@ -23,7 +23,7 @@ const dashboard = ({ data }) => {
       <Container>
         <Grid container spacing={2}>
           {data.map(t => (
-            <Grid item xs={4}>
+            <Grid item xs={6} md={4}>
               <ACard key={t.UID} test={t} />
             </Grid>
           ))
