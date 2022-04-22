@@ -7,9 +7,9 @@ import ListItemAvatar from '@mui/material/ListItemAvatar';
 import Avatar from '@mui/material/Avatar';
 import Typography from '@mui/material/Typography';
 import AssignmentIcon from '@mui/icons-material/Assignment';
-import { green } from '@mui/material/colors';
+import { yellow } from '@mui/material/colors';
 import { capitalizeFirstLetter } from '../utils';
-import { Box, Grid } from '@mui/material';
+import { Grid } from '@mui/material';
 
 export default function UserInfo({ userName, role }) {
     return (
@@ -22,7 +22,7 @@ export default function UserInfo({ userName, role }) {
             <List sx={{ width: '100%', maxWidth: 300, bgcolor: 'background.paper', justifyContent: 'center' }}>
                 <ListItem alignItems="flex-start">
                     <ListItemAvatar>
-                        <Avatar sx={{ bgcolor: green[500] }} >
+                        <Avatar sx={{ bgcolor: yellow[500] }} >
                             <AssignmentIcon />
                         </Avatar>
                     </ListItemAvatar>
@@ -38,7 +38,7 @@ export default function UserInfo({ userName, role }) {
                                 >
                                     Role:
                                 </Typography>
-                                {" "+role}
+                                {" " + role}
                             </React.Fragment>
                         }
                     />
@@ -46,6 +46,5 @@ export default function UserInfo({ userName, role }) {
                 <Divider variant="inset" component="li" />
             </List>
         </Grid>
-
     );
 }
