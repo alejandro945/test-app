@@ -14,7 +14,6 @@ const AAvatar = ({ username }) => {
                 {username}
             </Avatar>
         </Badge>
-
     )
 }
 

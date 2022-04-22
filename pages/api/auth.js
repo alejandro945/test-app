@@ -5,7 +5,7 @@ export default function handler(req, res) {
         const { userName, password, role } = req.body
         let current = searchUser(userName, password, role)
         if (current) {
-            res.status(200).json({ "msg": "Succesfully authentication" })
+            res.status(200).json({ "msg": "Succesfully authenticated" })
         } else {
             res.status(300).json({ "msg": "Incorrect username or password" })
         }
