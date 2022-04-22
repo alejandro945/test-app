@@ -1,8 +1,8 @@
 import * as React from 'react';
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 import createEmotionServer from '@emotion/server/create-instance';
-import theme from '../theme';
-import createEmotionCache from '../theme/createEmotionCache';
+import theme from '../themes';
+import createEmotionCache from '../themes/createEmotionCache';
 
 export default class MyDocument extends Document {
     render() {
@@ -14,6 +14,7 @@ export default class MyDocument extends Document {
                         content={theme.palette.primary.main} />
                     <link rel="shortcut icon"
                         href="/static/favicon.ico" />
+                    {/*CDN Injection */}
                     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossOrigin="anonymous"></link>
                     <link
                         rel="stylesheet"
@@ -35,13 +36,10 @@ export default class MyDocument extends Document {
 // `getInitialProps` belongs to `_document` (instead of `_app`),
 // it's compatible with static-site generation (SSG).
 MyDocument.getInitialProps = async (ctx) => {
-
     const originalRenderPage = ctx.renderPage;
-
     // You can consider sharing the same emotion cache between
     // all the SSR requests to speed up performance.
     // However, be aware that it can have global side effects.
-
     const cache = createEmotionCache();
     const { extractCriticalToChunks } = createEmotionServer(cache);
 

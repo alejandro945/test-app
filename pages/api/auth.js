@@ -13,7 +13,7 @@ export default function handler(req, res) {
 
 const logIn = (username, password, role) => {
     var props = false
-    let list = (role === "Student") ? data.students : data.teachers
+    let list = (role === data.roles[0]) ? data.students : data.teachers
     list.forEach(o => {
         if (o.userName.toUpperCase() === username & o.password === password) {
             props = true
@@ -21,3 +21,4 @@ const logIn = (username, password, role) => {
     });
     return props
 }
+

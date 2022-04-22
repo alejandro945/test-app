@@ -7,7 +7,6 @@ import AAvatar from "../components/AAvatar";
 import { getAvatar, sendAlert } from "../utils";
 import Mixim from "../components/Mixim";
 
-
 export default function Home() {
   const [user, setUser] = useState({
     userName: '',
@@ -38,8 +37,8 @@ export default function Home() {
       },
       body: JSON.stringify(user)
     }
-    let response = await fetch("http://localhost:3000/api/auth", config)
-    let result = await sendAlert(response)
+    let response = await fetch("/api/auth", config)
+    let result = await sendAlert(response,user)
     Mixim(result.m, result.type)
   }
 

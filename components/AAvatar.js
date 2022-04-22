@@ -1,5 +1,5 @@
 import React from 'react'
-import { red } from '@mui/material/colors';
+import { purple } from '@mui/material/colors';
 import { Avatar, Badge } from '@mui/material';
 
 const AAvatar = ({ username }) => {
@@ -7,10 +7,10 @@ const AAvatar = ({ username }) => {
         <Badge
             overlap="circular"
             anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
-            color="secondary"
-            badgeContent=" "
+            color="success"
+            variant='dot'
         >
-            <Avatar sx={{ bgcolor: red[900] }} variant="rounded">
+            <Avatar sx={{ bgcolor: purple[900] }} variant="circular">
                 {username}
             </Avatar>
         </Badge>
