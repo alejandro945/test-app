@@ -1,23 +1,29 @@
-import data from "../../data";
+import data from "../../data"
 
 export default function handler(req, res) {
     if (req.method === 'POST') {
-        const user = req.body
-        if (logIn(user.userName, user.password, user.role)) {
-            res.status(200).json({ "msg": "Succesfull logged" })
+        const { userName, password, role } = req.body
+        let current = searchUser(userName, password, role)
+        if (current) {
+            res.status(200).json({ "msg": "Succesfully authentication" })
         } else {
-            res.status(300).json({ "msg": "Incorrect username or password " })
+            res.status(300).json({ "msg": "Incorrect username or password" })
         }
     }
 }
 
-const logIn = (username, password, role) => {
-    var props = false
-    let list = (role === "Student") ? data.students : data.teachers
-    list.forEach(o => {
+function getList(role) {
+    return (role === data.roles[0]) ? data.students : data.teachers
+}
+
+const searchUser = (username, password, role) => {
+    var props = null
+    getList(role).forEach(o => {
         if (o.userName.toUpperCase() === username & o.password === password) {
-            props = true
+            props = o
         }
     });
     return props
 }
+
+

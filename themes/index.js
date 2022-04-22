@@ -22,11 +22,14 @@ const theme = createTheme({
 			main: '#9C0000',
 		},
 		secondary: {
-			main: '#2e7d32',
+			main: '#4a148c',
 		},
 		error: {
 			main: red.A400,
 		},
+		success:{
+			main: '#81c784'
+		}
 	},
 });
 
