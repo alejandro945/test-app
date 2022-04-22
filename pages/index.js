@@ -4,15 +4,19 @@ import styles from "../styles/Home.module.css";
 import Select from "../components/Select";
 import { useState } from "react";
 import AAvatar from "../components/AAvatar";
-import { getAvatar, sendAlert } from "../utils";
+import { getAvatar } from "../utils";
 import Mixim from "../components/Mixim";
+import { userService } from "../services/userService";
+import { useRouter } from "next/router";
 
 export default function Home() {
+  const router = useRouter()
   const [user, setUser] = useState({
     userName: '',
     password: '',
     role: ''
   })
+
 
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -29,17 +33,12 @@ export default function Home() {
 
   const handleSubmit = async e => {
     e.preventDefault();
-    let config = {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(user)
-    }
-    let response = await fetch("/api/auth", config)
-    let result = await sendAlert(response,user)
-    Mixim(result.m, result.type)
+    userService.logIn(user,({m,type})=>{
+      Mixim(m, type)
+      if (userService.isAuth) {
+        router.push('/dashboard');
+      }
+    })
   }
 
   return (

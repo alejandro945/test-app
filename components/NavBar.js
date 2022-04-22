@@ -8,9 +8,11 @@ import Fab from '@mui/material/Fab';
 import AddIcon from '@mui/icons-material/Add';
 import MailIcon from '@mui/icons-material/Mail';
 import NotificationsIcon from '@mui/icons-material/Notifications';
-import { Badge, Menu, MenuItem, Tooltip, Typography } from '@mui/material';
-import { getAvatar, logout } from '../utils';
+import { Badge, Tooltip } from '@mui/material';
+import { getAvatar } from '../utils';
 import AAvatar from './AAvatar';
+import { userService } from '../services/userService';
+import { useRouter } from 'next/router';
 
 const StyledFab = styled(Fab)({
     position: 'absolute',
@@ -21,11 +23,21 @@ const StyledFab = styled(Fab)({
     margin: '0 auto',
 });
 
+
+
 export default function BottomAppBar() {
+    const router = useRouter()
+    const user = userService.get()
+    
+    const handleLogout = () => {
+        userService.logOut()
+        router.push('/')
+    }
     return (
         <React.Fragment>
             <AppBar position="fixed" color="primary" sx={{ top: 'auto', bottom: 0 }}>
                 <Toolbar>
+
                     <IconButton size="large" aria-label="show 2 new mails" color="inherit">
                         <Badge badgeContent={2} color="error">
                             <MailIcon />
@@ -40,9 +52,11 @@ export default function BottomAppBar() {
                             <NotificationsIcon />
                         </Badge>
                     </IconButton>
+
                     <StyledFab color="secondary" aria-label="add">
                         <AddIcon />
                     </StyledFab>
+
                     <Box sx={{ flexGrow: 1 }} />
                     <Tooltip title="Log out">
                         <IconButton
@@ -50,12 +64,13 @@ export default function BottomAppBar() {
                             edge="end"
                             aria-label="account of current user"
                             aria-haspopup="true"
-                            onClick={logout}
+                            onClick={handleLogout}
                             color="inherit"
                         >
-                            <AAvatar username={getAvatar(JSON.parse(localStorage.getItem('user')).userName)} />
+                            <AAvatar username={getAvatar(user.userName)} />
                         </IconButton>
                     </Tooltip>
+
                 </Toolbar>
             </AppBar>
         </React.Fragment>
