@@ -2,20 +2,19 @@ import React from 'react'
 import AStepper from '../../components/AStepper'
 import Container from '../../components/Container'
 import Title from '../../components/Title'
-import NavBar from '../../components/NavBar'
 import withAuth from '../../services/withAuth'
 
 const question = () => {
   return (
-    <NavBar>
+    <div>
       <Container>
-        <Title title="Questions ☄️" description="Here begins your path to the creation of your exam, add all answers indicating the correct ones! 🦑" />
+        <Title title="Questions ☄️" description="Choose the answers that are adopted to your question in the simplest way (just a click)! 🦑" />
       </Container>
       <AStepper step={1} />
       <Container>
 
       </Container>
-    </NavBar>
+    </div>
   )
 }
 

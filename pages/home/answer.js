@@ -1,34 +1,69 @@
-import React from 'react'
+import React, { useState } from 'react'
 import AStepper from '../../components/AStepper'
 import Container from '../../components/Container'
 import Title from '../../components/Title'
-import NavBar from '../../components/NavBar'
 import withAuth from '../../services/withAuth'
-import { TextField } from '@mui/material'
+import { Button, FormControlLabel, Switch, TextField } from '@mui/material'
+import SendIcon from '@mui/icons-material/Send';
+import { testService } from '../../services/testService'
+import Mixim from '../../components/Mixim'
 
 const answer = () => {
-  const handleSubmit = () => {
 
+  const initialState ={
+    description: '',
+    isCorrect: false
   }
+
+  const [answer, setAnswer] = useState(initialState)
+
+  const clearState = () => {
+    setAnswer({ ...initialState });
+  };
+
+  const handleChange = (event) => {
+    const { name, value, checked } = event.target
+    const val = (name === 'isCorrect') ? checked : value
+    setAnswer({
+      ...answer,
+      [name]: val,
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    testService.addAnswer(answer, ({ m, type }) => {
+      Mixim(m, type)
+    })
+    clearState()
+  }
+
   return (
-    <NavBar>
+    <div>
       <Container>
         <Title title="Answers 🌝" description="Here begins your path to the creation of your exam, add all answers indicating the correct ones! 🐝" />
       </Container>
       <AStepper step={0} />
+      <Container>
       <form onSubmit={handleSubmit}>
-        <Container>
           <div className="row mt-2">
-            <div className="col-md-6 p-2">
-              <TextField fullWidth name="description" label="Description" variant="outlined" required={true} size="large" />
+            <div className="col-md-4 p-2">
+              <TextField fullWidth name="description" value={answer.description}  label="Description" variant="outlined" required={true} size="medium" onChange={handleChange} />
             </div>
-            <div className="col-md-6 p-2">
-              <TextField fullWidth name="userName" label="Username" variant="outlined" required={true} size="large" />
+            <div className="col-md-4 p-2">
+              <FormControlLabel
+                control={<Switch checked={answer.isCorrect} onChange={handleChange} color="warning" name="isCorrect" />}
+                label="Is Correct?"
+                labelPlacement="start"
+              />
             </div>
-          </div>
-        </Container>
+            <div className="col-md-4 p-2">
+              <Button type='submit' sx={{ width: '100%' }} size='large' color='warning' variant='outlined' endIcon={<SendIcon />}>Save</Button>
+            </div>
+          </div>    
       </form>
-    </NavBar>
+      </Container>
+    </div>
   )
 }
 

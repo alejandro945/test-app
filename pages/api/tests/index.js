@@ -9,18 +9,17 @@ export default apiHandler({
 
 function getTests(_, res) {
     let tests = []
-    data.teachers.map(t => {
-        t.tests.map(ts => {
+        data.tests.map(ts => {
             if (ts.avaible) {
                 tests.push(ts)
             }
         })
-    })
     res.status(200).json(tests)
 }
 
-function addTest(params) {
-
+function addTest(req, res) {
+    console.log(req.body);
+    res.status(200).json({ "msg": "Succesfully test creation" })
 }
 
 function removeTest(params) {

@@ -2,7 +2,6 @@ import { Grid } from '@mui/material';
 import React from 'react'
 import ACard from '../../components/ACard';
 import Container from '../../components/Container';
-import NavBar from '../../components/NavBar'
 import Title from '../../components/Title';
 import UserInfo from '../../components/UserInfo';
 import { testService } from '../../services/testService';
@@ -14,7 +13,7 @@ const dashboard = ({ data }) => {
   const user = userService.get()
   let desc = (user.role === 'Student') ? "In this section you can access your exams, we hope you pass most of them 🍄" : "In this section you can check the exams of all the classes 🦧"
   return (
-    <NavBar>
+    <div className='p-4'>
       <Container>
         <Title title="Dashboard 💥" description={desc} />
       </Container>
@@ -31,10 +30,8 @@ const dashboard = ({ data }) => {
       <div className='align-items-center mb-4'>
         <UserInfo userName={user.userName} role={user.role} />
       </div>
-      <br />
-      <br />
-      <br />
-    </NavBar>
+      <br/><br/>
+    </div>
   )
 
 }

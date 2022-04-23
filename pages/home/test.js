@@ -2,20 +2,19 @@ import React from 'react'
 import AStepper from '../../components/AStepper'
 import Container from '../../components/Container'
 import Title from '../../components/Title'
-import NavBar from '../../components/NavBar'
 import withAuth from '../../services/withAuth'
 
 const test = () => {
   return (
-    <NavBar>
-    <Container>
-      <Title title="Tests ❄️" description="Here begins your path to the creation of your exam, add all answers indicating the correct ones! 🐳" />
-    </Container>
-    <AStepper step={2} />
-    <Container>
+    <div>
+      <Container>
+        <Title title="Tests ❄️" description="End your exam in the most comfortable way by adding the number of questions you want. Fascinating right? 🐳" />
+      </Container>
+      <AStepper step={2} />
+      <Container>
 
-    </Container>
-  </NavBar>
+      </Container>
+    </div>
   )
 }
 
