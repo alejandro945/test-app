@@ -11,7 +11,7 @@ import TerminalTwoToneIcon from '@mui/icons-material/TerminalTwoTone';
 
 const question = ({ answers }) => {
   const initialQuestion = {
-    text: '',
+    description: '',
     percentage: '',
     answers: []
   }
@@ -64,7 +64,7 @@ const question = ({ answers }) => {
         <form onSubmit={handleSubmit}>
           <div className="row mt-2">
             <div className="col-md-6 p-2">
-              <TextField fullWidth name="text" value={question.text} label="Description" variant="outlined" required={true} size="large" onChange={handleChange} />
+              <TextField fullWidth name="description" value={question.description} label="Description" variant="outlined" required={true} size="large" onChange={handleChange} />
             </div>
             <div className="col-md-6 p-2">
               <TextField fullWidth type='number' name="percentage" value={question.percentage} label="Percentage" variant="outlined" required={true} size="large" onChange={handleChange} />
@@ -72,7 +72,7 @@ const question = ({ answers }) => {
           </div>
           <div className="row mt-2 ">
             <div className="col-md-12 p-2">
-              <MultipleSelect data={answers} handleChange={handleChange} name='Answers' />
+              <MultipleSelect data={answers} handleChange={handleChange} name='Answers'/>
             </div>
           </div>
           <div className="row mt-2 mb-2 ">

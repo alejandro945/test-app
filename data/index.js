@@ -57,7 +57,7 @@ let data = {
     questions: [
         {
             UID: '8b313147-4aa3-4c2b-afa4-d98a202aead9',
-            text: 'dads',
+            description: '¿Que es la capacitancia?',
             percentage: '434',
             answers: [
                 {

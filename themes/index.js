@@ -32,6 +32,9 @@ const theme = createTheme({
 		},
 		blender:{
 			main: '#ffd600'
+		},
+		basic:{
+			main:'#0d47a1'
 		}
 	},
 });

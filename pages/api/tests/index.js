@@ -1,5 +1,6 @@
 import data from "../../../data"
 import { apiHandler } from "../../../utils/api-handler";
+const { v4: uuidv4 } = require('uuid');
 
 export default apiHandler({
     get: getTests,
@@ -18,9 +19,12 @@ function getTests(_, res) {
 }
 
 function addTest(req, res) {
-    console.log(req.body);
+    const req_data = req.body;
+    const test = { 'UID': uuidv4(), ...req_data }
+    console.log(test);
+    data.tests.push(test)
     res.status(200).json({ "msg": "Succesfully test creation" })
 }
 
-function removeTest(params) {
+function removeTest(uid) {
 }

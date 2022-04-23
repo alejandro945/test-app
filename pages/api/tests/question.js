@@ -14,7 +14,6 @@ function getQuestions(_, res) {
 function addQuestion(req, res) {
     const req_data = req.body;
     const question = { 'UID': uuidv4(), ...req_data }
-    console.log(question);
     data.questions.push(question)
     res.status(200).json({ "msg": "Succesfully question creation" })
 }
