@@ -30,27 +30,17 @@ function getStyles(name, personName, theme) {
   };
 }
 
-export default function MultipleSelect({data}) {
+export default function MultipleSelect({data,state,handleChange,name}) {
   const theme = useTheme();
-  const [personName, setPersonName] = React.useState([]);
-
-  const handleChange = (event) => {
-    const {
-      target: { value },
-    } = event;
-    setPersonName(
-      typeof value === 'string' ? value.split(',') : value,
-    );
-  };
 
   return (
       <FormControl sx={{ m: 1, width: 300 }}>
-        <InputLabel id="demo-multiple-chip-label">Chip</InputLabel>
+        <InputLabel id="demo-multiple-chip-label">{name}</InputLabel>
         <Select
           labelId="demo-multiple-chip-label"
           id="demo-multiple-chip"
           multiple
-          value={personName}
+          value={state}
           onChange={handleChange}
           input={<OutlinedInput id="select-multiple-chip" label="Chip" />}
           renderValue={(selected) => (
@@ -66,7 +56,7 @@ export default function MultipleSelect({data}) {
             <MenuItem
               key={name}
               value={name}
-              style={getStyles(name, personName, theme)}
+              style={getStyles(name, state, theme)}
             >
               {name}
             </MenuItem>

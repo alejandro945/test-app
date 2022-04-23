@@ -1,10 +1,20 @@
-import React from 'react'
+import React, { useState } from 'react'
 import AStepper from '../../components/AStepper'
 import Container from '../../components/Container'
 import Title from '../../components/Title'
 import withAuth from '../../services/withAuth'
 
 const question = () => {
+  const [answers, setAnswers] = useState([]);
+
+  const handleAnswers = (event) => {
+    const {
+      target: { value },
+    } = event;
+    setAnswers(
+      typeof value === 'string' ? value.split(',') : value,
+    );
+  };
   return (
     <div>
       <Container>
