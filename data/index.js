@@ -140,11 +140,11 @@ let data = {
                         {
                             "UID": "c0f1-11ec",
                             "text": "",
+                            "percentage": 0.0,
                             "answers": [
                                 {
                                     "UID": "c0f1-11ec",
-                                    "state": false,
-                                    "percentage": 0.0,
+                                    "state": false,                            
                                     "description": ""
                                 }
                             ]
