@@ -37,7 +37,7 @@ const dashboard = ({ data }) => {
 }
 export async function getServerSideProps() {
   // Fetch data from external API
-  const res = await testService.get()
+  const res = await testService.getTests()
   const data = await res.json()
   // Pass data to the page via props
   return { props: { data } }

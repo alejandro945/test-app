@@ -1,67 +1,24 @@
 import * as React from 'react';
-import { useTheme } from '@mui/material/styles';
-import Box from '@mui/material/Box';
-import OutlinedInput from '@mui/material/OutlinedInput';
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
-import Chip from '@mui/material/Chip';
+import Autocomplete from '@mui/material/Autocomplete';
+import TextField from '@mui/material/TextField';
 
-const ITEM_HEIGHT = 48;
-const ITEM_PADDING_TOP = 8;
-const MenuProps = {
-  PaperProps: {
-    style: {
-      maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
-      width: 250,
-    },
-  },
-};
-
-
-
-function getStyles(name, personName, theme) {
-  return {
-    fontWeight:
-      personName.indexOf(name) === -1
-        ? theme.typography.fontWeightRegular
-        : theme.typography.fontWeightMedium,
-  };
-}
-
-export default function MultipleSelect({data,state,handleChange,name}) {
-  const theme = useTheme();
-
+export default function MultipleSelect({data,name,handleChange}) {
   return (
-      <FormControl sx={{ m: 1, width: 300 }}>
-        <InputLabel id="demo-multiple-chip-label">{name}</InputLabel>
-        <Select
-          labelId="demo-multiple-chip-label"
-          id="demo-multiple-chip"
-          multiple
-          value={state}
-          onChange={handleChange}
-          input={<OutlinedInput id="select-multiple-chip" label="Chip" />}
-          renderValue={(selected) => (
-            <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
-              {selected.map((value) => (
-                <Chip key={value} label={value} />
-              ))}
-            </Box>
-          )}
-          MenuProps={MenuProps}
-        >
-          {data.map((name) => (
-            <MenuItem
-              key={name}
-              value={name}
-              style={getStyles(name, state, theme)}
-            >
-              {name}
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
+      <Autocomplete
+        multiple
+        id="tags-outlined"
+        options={data}
+        getOptionLabel={(option) => option.description}
+        filterSelectedOptions
+        onChange={(event,value) =>( handleChange({ target: { name, value: value } }))}
+        renderInput={(params) => (
+          <TextField
+            {...params}
+            label={name}
+          />
+        )}
+      />
   );
 }
+
+

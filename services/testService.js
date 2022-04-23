@@ -1,15 +1,23 @@
 import { fetchWrapper } from "../utils/fetchWrapper"
 
 export const testService = {
-    get,
+    getTests,
     addTest,
+    getAnswers,
     addAnswer,
+    getQuestions,
     addQuestion,
     removeTest
 }
 
- async function get() {
+async function getTests() {
     return fetchWrapper.get('http://localhost:3000/api/tests/')
+}
+async function getAnswers() {
+    return fetchWrapper.get('http://localhost:3000/api/tests/answer')
+}
+async function getQuestions() {
+    return fetchWrapper.get('http://localhost:3000/api/tests/question')
 }
 
 function addTest(test, onResult) {
@@ -32,8 +40,8 @@ function addAnswer(answer, onResult) {
     })
 }
 
-function addQuestion(answer, onResult) {
-    fetchWrapper.post('/api/tests/answer', answer).then(({ res, msg }) => {
+function addQuestion(question, onResult) {
+    fetchWrapper.post('/api/tests/question', question).then(({ res, msg }) => {
         if (res.status == 200) {
             onResult({ m: msg, type: 'info' });
         } else {
@@ -42,6 +50,6 @@ function addQuestion(answer, onResult) {
     })
 }
 
-function removeTest(params) {
+function removeTest(UID) {
 
 }

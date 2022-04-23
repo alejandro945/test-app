@@ -15,6 +15,5 @@ function addAnswer(req, res) {
     const req_data = req.body;
     const answer = { 'UID': uuidv4(), ...req_data }
     data.answers.push(answer)
-    console.log(data.answers);
     res.status(200).json({ "msg": "Succesfully answer creation" })
 }
