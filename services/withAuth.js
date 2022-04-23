@@ -1,5 +1,7 @@
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import NavBar from '../components/NavBar'
+
 
 const withAuth = (WrappedComponent) => {
   return (props) => {
@@ -12,12 +14,16 @@ const withAuth = (WrappedComponent) => {
       if (!accessToken) {
         Router.replace("/");
       } else {
-          setVerified(accessToken);
+        setVerified(accessToken);
       }
     }, []);
 
     if (verified) {
-      return <WrappedComponent {...props} />;
+      return (
+        <NavBar>
+          <WrappedComponent {...props} />
+        </NavBar>
+        )
     } else {
       return null;
     }

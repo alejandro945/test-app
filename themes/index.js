@@ -28,7 +28,13 @@ const theme = createTheme({
 			main: red.A400,
 		},
 		success:{
-			main: '#81c784'
+			main: '#1b5e20'
+		},
+		blender:{
+			main: '#ffd600'
+		},
+		basic:{
+			main:'#0d47a1'
 		}
 	},
 });
