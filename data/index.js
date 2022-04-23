@@ -14,10 +14,11 @@ let data = {
                     "description": "Descarga de un condensador",
                     "questions": [
                         {
+                            "UID": "c0f1-11ec",
                             "text": "",
                             "answers": [
                                 {
-                                    "id": 0,
+                                    "UID": "c0f1-11ec",
                                     "state": false,
                                     "percentage": 0.0,
                                     "description": ""
@@ -35,10 +36,11 @@ let data = {
                     "description": "Ondas y señales",
                     "questions": [
                         {
+                            "UID": "c0f1-11ec",
                             "text": "",
                             "answers": [
                                 {
-                                    "id": 0,
+                                    "UID": "c0f1-11ec",
                                     "state": false,
                                     "percentage": 0.0,
                                     "description": ""
@@ -63,10 +65,11 @@ let data = {
                     "description": "Maxima transferencia de potencia",
                     "questions": [
                         {
+                            "UID": "c0f1-11ec",
                             "text": "",
                             "answers": [
                                 {
-                                    "id": 0,
+                                    "UID": "c0f1-11ec",
                                     "state": false,
                                     "percentage": 0.0,
                                     "description": ""
@@ -84,10 +87,11 @@ let data = {
                     "description": "Transformadas de Laplace",
                     "questions": [
                         {
+                            "UID": "c0f1-11ec",
                             "text": "",
                             "answers": [
                                 {
-                                    "id": 0,
+                                    "UID": "c0f1-11ec",
                                     "state": false,
                                     "percentage": 0.0,
                                     "description": ""
@@ -112,10 +116,11 @@ let data = {
                     "description": "Retención en la fuente",
                     "questions": [
                         {
+                            "UID": "c0f1-11ec",
                             "text": "",
                             "answers": [
                                 {
-                                    "id": 0,
+                                    "UID": "c0f1-11ec",
                                     "state": false,
                                     "percentage": 0.0,
                                     "description": ""
@@ -133,10 +138,11 @@ let data = {
                     "description": "Ecuación de Bernoulli",
                     "questions": [
                         {
+                            "UID": "c0f1-11ec",
                             "text": "",
                             "answers": [
                                 {
-                                    "id": 0,
+                                    "UID": "c0f1-11ec",
                                     "state": false,
                                     "percentage": 0.0,
                                     "description": ""

@@ -13,6 +13,7 @@ import { getAvatar } from '../utils';
 import AAvatar from './AAvatar';
 import { userService } from '../services/userService';
 import { useRouter } from 'next/router';
+import ASpeedDial from './ASpeedDial';
 
 const StyledFab = styled(Fab)({
     position: 'absolute',
@@ -33,6 +34,11 @@ export default function BottomAppBar({children}) {
         userService.logOut()
         router.push('/')
     }
+
+    const addTest = () => {
+
+    }
+
     return (
         <React.Fragment>
             {children}
@@ -54,9 +60,9 @@ export default function BottomAppBar({children}) {
                         </Badge>
                     </IconButton>
 
-                    {user.role=='Teacher' && <StyledFab color="secondary" aria-label="add">
+                    {user.role=='Teacher' && <ASpeedDial color="secondary" aria-label="add" onClick={addTest}>
                         <AddIcon />
-                    </StyledFab>}
+                    </ASpeedDial>}
 
                     <Box sx={{ flexGrow: 1 }} />
                     <Tooltip title="Log out">
