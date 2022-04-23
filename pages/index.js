@@ -36,7 +36,7 @@ export default function Home() {
     userService.logIn(user,({m,type})=>{
       Mixim(m, type)
       if (userService.isAuth) {
-        router.push('/dashboard');
+        router.push('/home/');
       }
     })
   }
