@@ -33,7 +33,7 @@ export default function Home() {
 
   const handleSubmit = async e => {
     e.preventDefault();
-    userService.logIn(user,({m,type})=>{
+    userService.logIn(user, ({ m, type }) => {
       Mixim(m, type)
       if (userService.isAuth) {
         router.push('/home/');
@@ -56,8 +56,10 @@ export default function Home() {
           <Divider sx={{ m: 2 }}>
             <Chip label="SIGN IN" />
           </Divider>
-          <p>In this section you can get into our test app depending of your university organization role</p>
-          {getAvatar(user.userName) !== '' ? <AAvatar username={getAvatar(user.userName)} /> : ''}
+          <div className="text-center">
+            <p>In this section you can get into our test app depending of your university organization role</p>
+            {getAvatar(user.userName) !== '' ? <AAvatar username={getAvatar(user.userName)} /> : ''}
+          </div>
           <div className="row mt-3">
             <div className="col-md-4 p-2">
               <TextField fullWidth name="userName" label="Username" variant="outlined" required={true} size="medium" onChange={handleChange} />
@@ -69,7 +71,9 @@ export default function Home() {
               <Select info={['Student', 'Teacher']} title="User role" name="role" handle={handleChange} />
             </div>
           </div>
-          <Button sx={{ m: 2 }} size="large" variant="contained" type="submit">Log in</Button>
+          <div className="text-center">
+            <Button sx={{ m: 2, width: '60%' }} size="large" variant="contained" type="submit">Log in</Button>
+          </div>
         </Container>
       </form>
 
