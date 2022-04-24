@@ -39,7 +39,7 @@ export default function ASpeedDial() {
         sx: {
           bgcolor: 'secondary.main',
           '&:hover': {
-            bgcolor: 'blender.main',
+            bgcolor: 'warning.main',
           }
         }
       }}
