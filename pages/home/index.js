@@ -11,6 +11,7 @@ import withAuth from '../../services/withAuth'
 
 const dashboard = ({ data }) => {
   const user = userService.get()
+  
   let desc = (user.role === 'Student') ? "In this section you can access your exams, we hope you pass most of them 🍄" : "In this section you can check the exams of all the classes 🦧"
   return (
     <div className='p-4'>
@@ -21,7 +22,7 @@ const dashboard = ({ data }) => {
         <Grid container spacing={2}>
           {data.map(t => (
             <Grid item key={t.UID} xs={6} md={4}>
-              <ACard key={t.UID} test={t} />
+              <ACard key={t.UID} test={t}/>
             </Grid>
           ))
           }

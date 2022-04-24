@@ -35,6 +35,7 @@ export default function ASpeedDial() {
   return (
     <SpeedDial
       ariaLabel="SpeedDial basic example"
+      color='secondary'
       sx={{
         position: 'absolute', bottom: 35, left: 0,
         right: 0,

@@ -10,11 +10,11 @@ export default apiHandler({
 
 function getTests(_, res) {
     let tests = []
-        data.tests.map(ts => {
-            if (ts.avaible) {
-                tests.push(ts)
-            }
-        })
+    data.tests.map(ts => {
+        if (ts.avaible) {
+            tests.push(ts)
+        }
+    })
     res.status(200).json(tests)
 }
 
@@ -26,5 +26,9 @@ function addTest(req, res) {
     res.status(200).json({ "msg": "Succesfully test creation" })
 }
 
-function removeTest(uid) {
+function removeTest(req, res) {
+    const uid = req.body
+    var newArray = data.tests.filter(t => t.UID !== uid)
+    data.tests = newArray
+    res.status(200).json({ "msg": "Succesfully test deletion" })
 }

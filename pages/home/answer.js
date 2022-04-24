@@ -58,7 +58,7 @@ const answer = () => {
               />
             </div>
             <div className="col-md-4 p-2">
-              <Button type='submit' sx={{ width: '75%' }} size='large' color='blender' variant='contained' endIcon={<SendIcon />}>Save</Button>
+              <Button type='submit' sx={{ width: '100%' }} size='large' color='blender' variant='contained' endIcon={<SendIcon />}>Save</Button>
             </div>
           </div>    
       </form>
