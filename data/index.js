@@ -91,35 +91,7 @@ let data = {
             img: "/img/test-1.jpeg",
             title: "Electromagnetismo",
             description: "Descarga de un condensador",
-            questions: [
-                {
-                    UID: '8b313147-4aa3-4c2b-afa4-d98a202aead9',
-                    description: '¿Que es la capacitancia?',
-                    percentage: '50',
-                    answers: [
-                        {
-                            UID: 'c0f1-43bg',
-                            isCorrect: false,
-                            description: 'Oxigeno como compuesto de moleculas'
-                        },
-                        {
-                            UID: 'fd45-11ec',
-                            isCorrect: false,
-                            description: 'Capacidad de un componente o circuito para recoger y almacenar energía en forma de carga eléctrica'
-                        },
-                        {
-                            UID: 'c0f1-11ec',
-                            isCorrect: false,
-                            description: 'La corriente se puede ver como dq/dt '
-                        },
-                        {
-                            UID: 'c0f1-11ec-99od',
-                            isCorrect: true,
-                            description: 'La resistencia de thevenin '
-                        }
-                    ]
-                }
-            ]
+            questions: []
         },
         {
             UID: "d7ceb7d8-c0f1",
