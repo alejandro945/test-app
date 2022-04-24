@@ -35,7 +35,14 @@ export default function ASpeedDial() {
   return (
     <SpeedDial
       ariaLabel="SpeedDial basic example"
-      color='secondary'
+      FabProps={{
+        sx: {
+          bgcolor: 'secondary.main',
+          '&:hover': {
+            bgcolor: 'blender.main',
+          }
+        }
+      }}
       sx={{
         position: 'absolute', bottom: 35, left: 0,
         right: 0,

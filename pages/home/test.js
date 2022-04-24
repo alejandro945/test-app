@@ -77,13 +77,14 @@ const test = ({questions}) => {
             <MultipleSelect data={questions} handleChange={handleChange} name='Questions' />
             </div>
           </div>
-          <div className="row mt-2 mb-2 ">
+          <div className="row mt-2 mb-4 ">
             <div className="col-md-12 p-2">
               <Button type='submit' fullWidth size='large' color='basic' variant='outlined' endIcon={<AirplaneTicketOutlinedIcon />}>Save</Button>
             </div>
           </div>
         </form>
       </Container>
+      <br/>
     </div>
   )
 }

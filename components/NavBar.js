@@ -26,17 +26,13 @@ const StyledFab = styled(Fab)({
 
 
 
-export default function BottomAppBar({children}) {
+export default function BottomAppBar({ children }) {
     const router = useRouter()
     const user = userService.get()
-    
+
     const handleLogout = () => {
         userService.logOut()
         router.push('/')
-    }
-
-    const addTest = () => {
-
     }
 
     return (
@@ -60,7 +56,7 @@ export default function BottomAppBar({children}) {
                         </Badge>
                     </IconButton>
 
-                    {user.role=='Teacher' && <ASpeedDial color="secondary" aria-label="add" onClick={addTest}>
+                    {user.role == 'Teacher' && <ASpeedDial aria-label="add">
                         <AddIcon />
                     </ASpeedDial>}
 
