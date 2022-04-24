@@ -12,6 +12,7 @@ import Mixim from '../../components/Mixim'
 
 const test = ({questions}) => {
   const imgs = [
+    '',
     '/img/test-1.jpeg',
     '/img/test-2.jpeg',
     '/img/test-3.jpeg',
@@ -23,8 +24,8 @@ const test = ({questions}) => {
   const initialState = {
     title: '',
     description: '',
-    accesCode: '',
-    img: false,
+    accessCode: 0,
+    img: '',
     questions: []
   }
 
@@ -63,18 +64,18 @@ const test = ({questions}) => {
               <TextField fullWidth name="title" value={test.title} label="Title" variant="outlined" required={true} size="large" onChange={handleChange} />
             </div>
             <div className="col-md-4 p-2">
-              <TextField fullWidth name="description" value={test.decription} label="Description" variant="outlined" required={true} size="large" onChange={handleChange} />
+              <TextField fullWidth name="description" value={test.description} label="Description" variant="outlined" required={true} size="large" onChange={handleChange} />
             </div>
             <div className="col-md-4 p-2">
-              <TextField fullWidth type='number' name="accesCode" value={test.accesCode} label="Access Code" variant="outlined" required={true} size="large" onChange={handleChange} />
+              <TextField fullWidth type='number' name="accessCode" value={test.accessCode} label="Access Code" variant="outlined" required={true} size="large" onChange={handleChange} />
             </div>
           </div>
           <div className="row mt-2 ">
             <div className="col-md-6 p-2">
-              <Select info={imgs} title="Image" name="img" handle={handleChange} />
+              <Select info={imgs} title="Image" name="img" handle={handleChange} img={test.img}/>
             </div>
             <div className="col-md-6 p-2">
-            <MultipleSelect data={questions} handleChange={handleChange} name='Questions' />
+            <MultipleSelect data={questions} handleChange={handleChange} name='Questions' val={test.questions}/>
             </div>
           </div>
           <div className="row mt-2 mb-4 ">

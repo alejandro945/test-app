@@ -9,7 +9,7 @@ import { testService } from '../../services/testService'
 import withAuth from '../../services/withAuth'
 import TerminalTwoToneIcon from '@mui/icons-material/TerminalTwoTone';
 
-const question = ({ answers }) => {
+const question = ({ ans }) => {
   const initialQuestion = {
     description: '',
     percentage: '',
@@ -72,7 +72,7 @@ const question = ({ answers }) => {
           </div>
           <div className="row mt-2 ">
             <div className="col-md-12 p-2">
-              <MultipleSelect data={answers} handleChange={handleChange} name='Answers'/>
+              <MultipleSelect data={ans} handleChange={handleChange} name='Answers'/>
             </div>
           </div>
           <div className="row mt-2 mb-2 ">
@@ -89,10 +89,10 @@ const question = ({ answers }) => {
 
 export async function getServerSideProps() {
   const res = await testService.getAnswers()
-  const answers = await res.json()
+  const ans = await res.json()
   return {
     props: {
-      answers,
+      ans,
     },
   }
 }
