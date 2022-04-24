@@ -1,6 +1,5 @@
-import data from '../../data';
-import { apiHandler } from '../../utils/api-handler';
-
+import data from "../../../data"
+import { apiHandler } from "../../../utils/api-handler";
 const { v4: uuidv4 } = require('uuid');
 
 export default apiHandler({
