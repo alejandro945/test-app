@@ -1,8 +1,8 @@
 import data from "../../../data";
 
 export default function handler(req, res) {
-    var studentUID = req.query.code;
-    console.log(data.teachers[0].tests);
-    res.json(studentUID)
+    let uid = req.query.code;
+    const test = data.tests.find(t => t.UID === uid)
+    res.status(200).json(test)
 }
 
