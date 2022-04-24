@@ -1,7 +1,6 @@
 import { fetchWrapper } from "../utils/fetchWrapper"
 
 export const testService = {
-    getTest,
     getTests,
     addTest,
     getAnswers,
@@ -10,17 +9,15 @@ export const testService = {
     addQuestion,
     removeTest
 }
-async function getTest(uid) {
-    return fetchWrapper.get('http://localhost:3000/api/tests/'+uid)
-}
+
 async function getTests() {
     return fetchWrapper.get('http://localhost:3000/api/tests/')
 }
 async function getAnswers() {
-    return fetchWrapper.get('http://localhost:3000/api/answer')
+    return fetchWrapper.get('http://localhost:3000/api/tests/answer')
 }
 async function getQuestions() {
-    return fetchWrapper.get('http://localhost:3000/api/question')
+    return fetchWrapper.get('http://localhost:3000/api/tests/question')
 }
 
 function addTest(test, onResult) {
@@ -34,7 +31,7 @@ function addTest(test, onResult) {
 }
 
 function addAnswer(answer, onResult) {
-    fetchWrapper.post('/api/answer', answer).then(({ res, msg }) => {
+    fetchWrapper.post('/api/tests/answer', answer).then(({ res, msg }) => {
         if (res.status == 200) {
             onResult({ m: msg, type: 'info' });
         } else {
@@ -44,7 +41,7 @@ function addAnswer(answer, onResult) {
 }
 
 function addQuestion(question, onResult) {
-    fetchWrapper.post('/api/question', question).then(({ res, msg }) => {
+    fetchWrapper.post('/api/tests/question', question).then(({ res, msg }) => {
         if (res.status == 200) {
             onResult({ m: msg, type: 'info' });
         } else {
@@ -53,12 +50,6 @@ function addQuestion(question, onResult) {
     })
 }
 
-function removeTest(UID, onResult) {
-    fetchWrapper.delete('/api/tests/', UID).then(({ res, msg }) => {
-        if (res.status == 200) {
-            onResult({ m: msg, type: 'success' });
-        } else {
-            onResult({ m: msg, type: 'error' });
-        }
-    })
+function removeTest(UID) {
+
 }

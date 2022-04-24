@@ -77,7 +77,7 @@ const question = ({ answers }) => {
           </div>
           <div className="row mt-2 mb-2 ">
             <div className="col-md-12 p-2">
-              <Button type='submit' fullWidth size='large' color='warning' variant='outlined' endIcon={<TerminalTwoToneIcon />}>Save</Button>
+              <Button type='submit' sx={{ width: '70%' }} size='large' color='warning' variant='outlined' endIcon={<TerminalTwoToneIcon />}>Save</Button>
             </div>
           </div>
         </form>
