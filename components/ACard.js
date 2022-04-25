@@ -11,18 +11,23 @@ import { testService } from '../services/testService';
 import Mixim from './Mixim';
 import Link from 'next/link';
 import ModalCode from './ModalCode';
+import { useRouter } from "next/router";
 
 const ACard = ({ test }) => {
     const user = userService.get()
+    const router = useRouter();
 
     const handleRemove = () => {
         testService.removeTest(test.UID, ({ m, type }) => {
             Mixim(m, type)
         })
     }
-
+    async function getAccessCode() {
+        return await ModalCode("Ingresa el codigo de acceso");
+    }
     const handleModal = () => {
-        let a = ModalCode("Ingresa el codigo de acceso");
+        let accesscode = getAccessCode();
+        console.log(accesscode);
     }
 
     return (

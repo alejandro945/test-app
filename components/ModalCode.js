@@ -1,7 +1,10 @@
 import React from 'react'
 import Swal from 'sweetalert2';
+import { testService } from '../services/testService';
+import Mixim from './Mixim';
+import { useRouter } from "next/router";
 
-const ModalCode = (string) => {
+async function ModalCode(string) {
     Swal.fire({
         title: string,
         input: 'text',
@@ -13,6 +16,18 @@ const ModalCode = (string) => {
         showLoaderOnConfirm: true,
         preConfirm: (accesscode) => {
             return accesscode;
+            /*
+                        testService.isAccessCode({ test, accesscode }, ({ m, type }) => {
+                Mixim(m, type);
+                if (type == 'success') {
+                    console.log('bien');
+                }
+            });
+            */
+        }
+    }).then(result => {
+        if (result.isConfirmed) {
+            localStorage.setItem("code", result.value);
         }
     })
 };
