@@ -10,7 +10,7 @@ import withAuth from '../../services/withAuth'
 import AirplaneTicketOutlinedIcon from '@mui/icons-material/AirplaneTicketOutlined';
 import Mixim from '../../components/Mixim'
 
-const test = ({questions}) => {
+const test = ({ques}) => {
   const imgs = [
     '',
     '/img/test-1.jpeg',
@@ -24,7 +24,7 @@ const test = ({questions}) => {
   const initialState = {
     title: '',
     description: '',
-    accessCode: 0,
+    accesscode: 0,
     img: '',
     questions: []
   }
@@ -39,7 +39,7 @@ const test = ({questions}) => {
     const { name, value } = event.target
     setTest({
       ...test,
-      [name]: value,
+      [name.toLowerCase()]: value,
     });
   };
 
@@ -67,7 +67,7 @@ const test = ({questions}) => {
               <TextField fullWidth name="description" value={test.description} label="Description" variant="outlined" required={true} size="large" onChange={handleChange} />
             </div>
             <div className="col-md-4 p-2">
-              <TextField fullWidth type='number' name="accessCode" value={test.accessCode} label="Access Code" variant="outlined" required={true} size="large" onChange={handleChange} />
+              <TextField fullWidth type='number' name="accesscode" value={test.accesscode} label="Access Code" variant="outlined" required={true} size="large" onChange={handleChange} />
             </div>
           </div>
           <div className="row mt-2 ">
@@ -75,7 +75,7 @@ const test = ({questions}) => {
               <Select info={imgs} title="Image" name="img" handle={handleChange} img={test.img}/>
             </div>
             <div className="col-md-6 p-2">
-            <MultipleSelect data={questions} handleChange={handleChange} name='Questions' val={test.questions}/>
+            <MultipleSelect data={ques} handleChange={handleChange} name='Questions' val={test.questions}/>
             </div>
           </div>
           <div className="row mt-2 mb-4 ">
@@ -92,10 +92,10 @@ const test = ({questions}) => {
 
 export async function getServerSideProps() {
   const res = await testService.getQuestions()
-  const questions = await res.json()
+  const ques = await res.json()
   return {
     props: {
-      questions,
+      ques,
     },
   }
 }

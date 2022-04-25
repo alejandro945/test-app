@@ -86,7 +86,7 @@ let data = {
     tests: [
         {
             UID: "d7ceb7d8-c0f1-11ec-9d64-0242ac120002",
-            accessCode: 2567,
+            accesscode: 2567,
             avaible: true,
             img: "/img/test-1.jpeg",
             title: "Electromagnetismo",
@@ -123,7 +123,7 @@ let data = {
         },
         {
             UID: "d7ceb7d8-c0f1",
-            accessCode: 3554,
+            accesscode: 3554,
             avaible: true,
             img: "/img/test-6.jpeg",
             title: "Organica III",
@@ -132,7 +132,7 @@ let data = {
         },
         {
             UID: "d7ceb7d8-c0f1-11ec",
-            accessCode: 34,
+            accesscode: 34,
             avaible: true,
             img: "/img/test-3.jpeg",
             title: "Contabilidad",
@@ -141,7 +141,7 @@ let data = {
         },
         {
             UID: "c0f1-11ec",
-            accessCode: 34,
+            accesscode: 34,
             avaible: true,
             img: "/img/test-5.jpeg",
             title: "Termodinamica",
@@ -150,7 +150,7 @@ let data = {
         },
         {
             UID: "d7ceb7d8-c0f1-11ec-9d64",
-            accessCode: 3,
+            accesscode: 3,
             avaible: true,
             img: "/img/test-2.jpeg",
             title: "Electrónica",
@@ -159,7 +159,7 @@ let data = {
         },
         {
             UID: "d7ceb7d8-c0f1-9d643",
-            accessCode: 387,
+            accesscode: 387,
             avaible: true,
             img: "/img/test-4.jpeg",
             title: "Ecuaciones diferenciales",

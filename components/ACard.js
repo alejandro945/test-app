@@ -10,6 +10,7 @@ import QuizIcon from '@mui/icons-material/Quiz';
 import { testService } from '../services/testService';
 import Mixim from './Mixim';
 import Link from 'next/link';
+import AModal from './AModal';
 
 const ACard = ({ test }) => {
     const user = userService.get()
@@ -18,6 +19,10 @@ const ACard = ({ test }) => {
         testService.removeTest(test.UID, ({ m, type }) => {
             Mixim(m, type)
         })
+    }
+
+    const handlePresent = () => {
+        <AModal/>
     }
 
     return (
@@ -40,11 +45,11 @@ const ACard = ({ test }) => {
                 </CardActionArea>
                 <CardActions>
                     {(user.role === 'Student') ?
-                        <Link href={'/home/exam/'+test.UID}>
-                            <Button variant="outlined" color="secondary" startIcon={<QuizIcon />}>
+                       /* <Link href={'/home/exam/'+test.UID}>*/
+                            <Button variant="outlined" color="secondary" startIcon={<QuizIcon />} onClick={handlePresent}>
                                 Present
                             </Button>
-                        </Link>
+                       
                         :
                         <Button variant="outlined" startIcon={<DeleteIcon />} onClick={handleRemove}>
                             Delete
