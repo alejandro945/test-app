@@ -118,6 +118,33 @@ let data = {
                             description: 'La resistencia de thevenin '
                         }
                     ]
+                },
+                {
+                    UID: '8b313147-4aa3-4c2b-afa4-d98a202dfasf45',
+                    description: '¿Que es la energia electromagnética?',
+                    percentage: '50',
+                    answers: [
+                        {
+                            UID: 'c0f1-43bg-4523',
+                            isCorrect: true,
+                            description: 'Ondas de campos electricos y magneticos que se propagan a traves del espacio'
+                        },
+                        {
+                            UID: 'fd45-11ec-45se',
+                            isCorrect: false,
+                            description: 'Combinación de energia cinetica y potencial'
+                        },
+                        {
+                            UID: 'c0f1-11ec-ads4',
+                            isCorrect: false,
+                            description: 'Es equivalente a la energia mecanica'
+                        },
+                        {
+                            UID: 'c0f1-11ec-99od-4sdas',
+                            isCorrect: false,
+                            description: 'Energia en el espacio'
+                        }
+                    ]
                 }
             ]
         },

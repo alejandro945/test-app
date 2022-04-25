@@ -1,6 +1,6 @@
 import Swal from 'sweetalert2';
 
-function Modal(title,onResult) {
+function Modal(title, onResult) {
     Swal.fire({
         title: title,
         input: 'text',
