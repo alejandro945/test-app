@@ -62,3 +62,13 @@ function removeTest(UID, onResult) {
         }
     })
 }
+
+function isAccessCode(UID, onResult){
+    fetchWrapper.post('/api/tests/', UID).then(({res, msg}) => {
+        if(res.status == 200) {
+            onResult({m: msg, type: 'success'});
+        } else {
+            onResult({m: msg, type: 'error'})
+        }
+    })
+}
