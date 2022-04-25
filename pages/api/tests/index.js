@@ -5,7 +5,8 @@ const { v4: uuidv4 } = require('uuid');
 export default apiHandler({
     get: getTests,
     post: addTest,
-    delete: removeTest
+    delete: removeTest,
+    put: validateCode
 })
 
 function getTests(_, res) {
@@ -31,4 +32,14 @@ function removeTest(req, res) {
     var newArray = data.tests.filter(t => t.UID !== uid)
     data.tests = newArray
     res.status(200).json({ "msg": "Succesfully test deletion" })
+}
+
+function validateCode(req, res) {
+    const { accesscode, test } = req.body;
+    let centinel = data.tests.find(t => t.UID == test.UID);
+    if (centinel.accessCode == accesscode) {
+        res.status(200).json({ "msg": "Correct Code" });
+    } else {
+        res.status(300).json({ "msg": "Incorrect Code" });
+    }
 }

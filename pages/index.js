@@ -78,7 +78,7 @@ export default function Home() {
       </form>
 
       <footer className={styles.footer}>
-        <span> 🐱 Copyright <a href="https://github.com/alejandro945">Alejandro Varela</a> 🧶 </span>
+        <span> 🐱 Copyright <a href="https://github.com/alejandro945">Alejandro Varela</a> and <a href="https://github.com/GabrielSB19">Gabriel Suarez</a> 🧶 </span>
       </footer>
     </div>
   );

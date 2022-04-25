@@ -8,10 +8,11 @@ export const testService = {
     addAnswer,
     getQuestions,
     addQuestion,
-    removeTest
+    removeTest,
+    isAccessCode
 }
 async function getTest(uid) {
-    return fetchWrapper.get('http://localhost:3000/api/tests/'+uid)
+    return fetchWrapper.get('http://localhost:3000/api/tests/' + uid)
 }
 async function getTests() {
     return fetchWrapper.get('http://localhost:3000/api/tests/')
@@ -59,6 +60,16 @@ function removeTest(UID, onResult) {
             onResult({ m: msg, type: 'success' });
         } else {
             onResult({ m: msg, type: 'error' });
+        }
+    })
+}
+
+function isAccessCode(prop, onResult) {
+    fetchWrapper.put('/api/tests/', prop).then(({ res, msg }) => {
+        if (res.status == 200) {
+            onResult({ m: msg, type: 'success' });
+        } else {
+            onResult({ m: msg, type: 'error' })
         }
     })
 }

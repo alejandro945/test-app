@@ -10,15 +10,24 @@ import QuizIcon from '@mui/icons-material/Quiz';
 import { testService } from '../services/testService';
 import Mixim from './Mixim';
 import Link from 'next/link';
-import AModal from './AModal';
+import ModalCode from './ModalCode';
+import { useRouter } from "next/router";
 
 const ACard = ({ test }) => {
     const user = userService.get()
+    const router = useRouter();
 
     const handleRemove = () => {
         testService.removeTest(test.UID, ({ m, type }) => {
             Mixim(m, type)
         })
+    }
+    async function getAccessCode() {
+        return await ModalCode("Ingresa el codigo de acceso");
+    }
+    const handleModal = () => {
+        let accesscode = getAccessCode();
+        console.log(accesscode);
     }
 
     const handlePresent = () => {
@@ -45,11 +54,9 @@ const ACard = ({ test }) => {
                 </CardActionArea>
                 <CardActions>
                     {(user.role === 'Student') ?
-                       /* <Link href={'/home/exam/'+test.UID}>*/
-                            <Button variant="outlined" color="secondary" startIcon={<QuizIcon />} onClick={handlePresent}>
-                                Present
-                            </Button>
-                       
+                        <Button variant="outlined" color="secondary" startIcon={<QuizIcon />} onClick={handleModal}>
+                            Present
+                        </Button>
                         :
                         <Button variant="outlined" startIcon={<DeleteIcon />} onClick={handleRemove}>
                             Delete
