@@ -58,7 +58,7 @@ let data = {
         {
             UID: '8b313147-4aa3-4c2b-afa4-d98a202aead9',
             description: '¿Que es la capacitancia?',
-            percentage: '434',
+            percentage: '50',
             answers: [
                 {
                     UID: 'c0f1-43bg',

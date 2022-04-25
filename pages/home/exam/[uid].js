@@ -2,10 +2,10 @@ import { Button } from '@mui/material'
 import Link from 'next/link'
 import React from 'react'
 import Container from '../../../components/Container'
+import Question from '../../../components/Question'
 import Title from '../../../components/Title'
 import { testService } from '../../../services/testService'
 import withAuth from '../../../services/withAuth'
-import Ask from '../ask'
 
 const Exam = ({ test }) => {
   return (
@@ -14,7 +14,7 @@ const Exam = ({ test }) => {
         <Title title={test.title + " Test 🦥"} description={test.description + " 🐡"} />
       </Container>
       {test.questions.map(q => (
-        <Ask key={q.UID} question={q} />
+        <Question key={q.UID} question={q} />
       ))}
       <Container>
         <div className='row mt-2'>

@@ -1,9 +1,9 @@
 import React from 'react'
-import ARadioGroup from '../../components/ARadioGroup'
-import Container from '../../components/Container'
-import Title from '../../components/Title'
+import Container from './Container'
+import ARadioGroup from './ARadioGroup'
+import Title from './Title'
 
-const Ask = ({ question }) => {
+const Question = ({ question }) => {
     return (
         <div>
             <Container>
@@ -14,4 +14,4 @@ const Ask = ({ question }) => {
     )
 }
 
-export default Ask
+export default Question

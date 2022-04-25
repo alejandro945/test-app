@@ -1,4 +1,4 @@
-import { Button, TextField } from '@mui/material'
+import { Alert, Button, TextField } from '@mui/material'
 import React, { useState } from 'react'
 import AStepper from '../../components/AStepper'
 import Container from '../../components/Container'
@@ -45,10 +45,22 @@ const test = ({ques}) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    testService.addTest(test, ({ m, type }) => {
-      Mixim(m, type)
+    if(percentageValidation()){
+      testService.addTest(test, ({ m, type }) => {
+        Mixim(m, type)
+      })
+      clearState()
+    }else{
+      Mixim('Missing or exceed percentage','warning')
+    }
+  }
+
+  function percentageValidation() {
+    var total = 0
+    test.questions.map(q =>{
+        total += q.percentage
     })
-    clearState()
+    return (total == 100)
   }
 
   return (
@@ -78,12 +90,13 @@ const test = ({ques}) => {
             <MultipleSelect data={ques} handleChange={handleChange} name='Questions' val={test.questions}/>
             </div>
           </div>
-          <div className="row mt-2 mb-4 ">
+          <div className="row mt-2 ">
             <div className="col-md-12 p-2">
               <Button type='submit' fullWidth size='large' color='basic' variant='outlined' endIcon={<AirplaneTicketOutlinedIcon />}>Save</Button>
             </div>
           </div>
         </form>
+        <Alert severity="warning">Remember that a test must have <strong>100%</strong> of questions percentage 🚨</Alert>
       </Container>
       <br/>
     </div>

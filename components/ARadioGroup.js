@@ -34,7 +34,7 @@ export default function ARadioGroup({ data }) {
         <div className='p-4 '>
             <RadioGroup name="use-radio-group">
                 {data.map(e => (
-                    <MyFormControlLabel key={e.UID} value={e.description} label={e.description} control={<Radio color='secondary' />} />
+                    <MyFormControlLabel key={e.UID} value={e.description} label={e.description} control={<Radio required={true} color='secondary' />} />
                 ))}
             </RadioGroup>
         </div>
