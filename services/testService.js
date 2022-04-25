@@ -9,7 +9,7 @@ export const testService = {
     getQuestions,
     addQuestion,
     removeTest,
-    isAccessCode
+    accessCode
 }
 async function getTest(uid) {
     return fetchWrapper.get('http://localhost:3000/api/tests/' + uid)
@@ -64,7 +64,7 @@ function removeTest(UID, onResult) {
     })
 }
 
-function isAccessCode(prop, onResult) {
+function accessCode(prop, onResult) {
     fetchWrapper.put('/api/tests/', prop).then(({ res, msg }) => {
         if (res.status == 200) {
             onResult({ m: msg, type: 'success' });

@@ -35,9 +35,9 @@ function removeTest(req, res) {
 }
 
 function validateCode(req, res) {
-    const { accesscode, test } = req.body;
+    const { code, test } = req.body;
     let centinel = data.tests.find(t => t.UID == test.UID);
-    if (centinel.accessCode == accesscode) {
+    if (centinel.accesscode == code) {
         res.status(200).json({ "msg": "Correct Code" });
     } else {
         res.status(300).json({ "msg": "Incorrect Code" });

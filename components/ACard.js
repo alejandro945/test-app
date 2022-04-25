@@ -9,9 +9,8 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import QuizIcon from '@mui/icons-material/Quiz';
 import { testService } from '../services/testService';
 import Mixim from './Mixim';
-import Link from 'next/link';
-import ModalCode from './ModalCode';
 import { useRouter } from "next/router";
+import Modal from './Modal';
 
 const ACard = ({ test }) => {
     const user = userService.get()
@@ -22,16 +21,16 @@ const ACard = ({ test }) => {
             Mixim(m, type)
         })
     }
-    async function getAccessCode() {
-        return await ModalCode("Ingresa el codigo de acceso");
-    }
-    const handleModal = () => {
-        let accesscode = getAccessCode();
-        console.log(accesscode);
-    }
 
-    const handlePresent = () => {
-        <AModal/>
+    const handleModal = () => {
+        Modal("Please enter your access code", (code => {
+            testService.accessCode({ test, code }, ({ m, type }) => {
+                Mixim(m, type);
+                if (type == 'success') {
+                    router.push('home/exam/' + test.UID)
+                }
+            });
+        }));
     }
 
     return (
