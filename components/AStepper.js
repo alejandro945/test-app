@@ -16,7 +16,7 @@ export default function AStepper({step}) {
       <Stepper activeStep={step} alternativeLabel>
         {steps.map((label) => (
           <Step key={label}>
-            <StepLabel>{label}</StepLabel>
+            <StepLabel >{label}</StepLabel>
           </Step>
         ))}
       </Stepper>

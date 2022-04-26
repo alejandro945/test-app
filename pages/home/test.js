@@ -96,7 +96,7 @@ const test = ({ques}) => {
             </div>
           </div>
         </form>
-        <Alert severity="warning">Remember that a test must have <strong>100%</strong> of questions percentage 🚨</Alert>
+        <Alert severity="warning">Remember that a test must have <strong>100%</strong> of questions percentage 🚨</Alert><br/>
       </Container>
       <br/>
     </div>
