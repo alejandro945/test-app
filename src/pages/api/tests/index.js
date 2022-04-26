@@ -22,7 +22,6 @@ function getTests(_, res) {
 function addTest(req, res) {
     const req_data = req.body;
     const test = { 'UID': uuidv4(), ...req_data }
-    console.log(test);
     data.tests.push(test)
     res.status(200).json({ "msg": "Succesfully test creation" })
 }

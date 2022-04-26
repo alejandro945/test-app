@@ -23,11 +23,11 @@ export default function ASpeedDial() {
     let url = e.target.name.toLowerCase()
     if (('/' + url) != router.route) {
       if (url === 'home') {
-        router.push('/home')
+        router.replace('/home')
       } else if (router.route == '/home') {
-        router.push('home/' + url)
+        router.replace('home/' + url)
       } else {
-        router.push(url)
+        router.replace(url)
       }
     }
   }

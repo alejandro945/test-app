@@ -40,12 +40,12 @@ let data = {
         },
         {
             UID: "c0f1-11ec-99od",
-            isCorrect: true,
+            isCorrect: false,
             description: "La resistencia de thevenin "
         },
         {
             UID: "fd45-11ec",
-            isCorrect: false,
+            isCorrect: true,
             description: "Euler a la rx es la una solución de la EDC "
         },
         {
@@ -58,7 +58,7 @@ let data = {
         {
             UID: '8b313147-4aa3-4c2b-afa4-d98a202aead9',
             description: '¿Que es la capacitancia?',
-            percentage: '50',
+            percentage: 50,
             answers: [
                 {
                     UID: 'c0f1-43bg',
@@ -67,7 +67,7 @@ let data = {
                 },
                 {
                     UID: 'fd45-11ec',
-                    isCorrect: false,
+                    isCorrect: true,
                     description: 'Euler a la rx es la una solución de la EDC '
                 },
                 {
@@ -77,7 +77,7 @@ let data = {
                 },
                 {
                     UID: 'c0f1-11ec-99od',
-                    isCorrect: true,
+                    isCorrect: false,
                     description: 'La resistencia de thevenin '
                 }
             ]
@@ -95,7 +95,7 @@ let data = {
                 {
                     UID: '8b313147-4aa3-4c2b-afa4-d98a202aead9',
                     description: '¿Que es la capacitancia?',
-                    percentage: '50',
+                    percentage: 50,
                     answers: [
                         {
                             UID: 'c0f1-43bg',
@@ -104,7 +104,7 @@ let data = {
                         },
                         {
                             UID: 'fd45-11ec',
-                            isCorrect: false,
+                            isCorrect: true,
                             description: 'Capacidad de un componente o circuito para recoger y almacenar energía en forma de carga eléctrica'
                         },
                         {
@@ -114,7 +114,7 @@ let data = {
                         },
                         {
                             UID: 'c0f1-11ec-99od',
-                            isCorrect: true,
+                            isCorrect: false,
                             description: 'La resistencia de thevenin '
                         }
                     ]
@@ -122,7 +122,7 @@ let data = {
                 {
                     UID: '8b313147-4aa3-4c2b-afa4-d98a202dfasf45',
                     description: '¿Que es la energia electromagnética?',
-                    percentage: '50',
+                    percentage: 50,
                     answers: [
                         {
                             UID: 'c0f1-43bg-4523',

@@ -32,7 +32,7 @@ export default function BottomAppBar({ children }) {
 
     const handleLogout = () => {
         userService.logOut()
-        router.push('/')
+        router.replace('/')
     }
 
     return (

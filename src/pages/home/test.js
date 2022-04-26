@@ -58,7 +58,7 @@ const test = ({ques}) => {
   function percentageValidation() {
     var total = 0
     test.questions.map(q =>{
-        total += q.percentage
+        total += parseInt(q.percentage)
     })
     return (total == 100)
   }

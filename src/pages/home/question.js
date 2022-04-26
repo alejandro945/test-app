@@ -12,7 +12,7 @@ import TerminalTwoToneIcon from '@mui/icons-material/TerminalTwoTone';
 const question = ({ ans }) => {
   const initialQuestion = {
     description: '',
-    percentage: '',
+    percentage: 0,
     answers: []
   }
   const [question, setQuestion] = useState(initialQuestion);

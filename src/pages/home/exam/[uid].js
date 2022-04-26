@@ -27,7 +27,7 @@ const Exam = ({ test }) => {
             <Button fullWidth color='success' variant='contained'>Finish</Button>
           </div>
         </div>
-      </Container>
+      </Container><br/><br/>
     </div>
   )
 }
