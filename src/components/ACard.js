@@ -27,7 +27,7 @@ const ACard = ({ test }) => {
             testService.accessCode({ test, code }, ({ m, type }) => {
                 Mixim(m, type);
                 if (type == 'success') {
-                    router.push('home/exam/' + test.UID)
+                    router.replace('home/exam/' + test.UID)
                 }
             });
         }));

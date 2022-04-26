@@ -9,8 +9,11 @@ import { testService } from '../../services/testService'
 import withAuth from '../../services/withAuth'
 import AirplaneTicketOutlinedIcon from '@mui/icons-material/AirplaneTicketOutlined';
 import Mixim from '../../components/Mixim'
+import { useRouter } from "next/router";
 
-const test = ({ques}) => {
+const test = ({ ques }) => {
+  const router = useRouter()
+
   const imgs = [
     '',
     '/img/test-1.jpeg',
@@ -31,10 +34,6 @@ const test = ({ques}) => {
 
   const [test, setTest] = useState(initialState)
 
-  const clearState = () => {
-    setTest({ ...initialState });
-  };
-
   const handleChange = (event) => {
     const { name, value } = event.target
     setTest({
@@ -45,20 +44,21 @@ const test = ({ques}) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if(percentageValidation()){
+    if (percentageValidation()) {
       testService.addTest(test, ({ m, type }) => {
         Mixim(m, type)
+        router.replace('/home')
       })
-      clearState()
-    }else{
-      Mixim('Missing or exceed percentage','warning')
+
+    } else {
+      Mixim('Missing or exceed percentage', 'warning')
     }
   }
 
   function percentageValidation() {
     var total = 0
-    test.questions.map(q =>{
-        total += parseInt(q.percentage)
+    test.questions.map(q => {
+      total += parseInt(q.percentage)
     })
     return (total == 100)
   }
@@ -84,10 +84,10 @@ const test = ({ques}) => {
           </div>
           <div className="row mt-2 ">
             <div className="col-md-6 p-2">
-              <Select info={imgs} title="Image" name="img" handle={handleChange} img={test.img}/>
+              <Select info={imgs} title="Image" name="img" handle={handleChange} img={test.img} />
             </div>
             <div className="col-md-6 p-2">
-            <MultipleSelect data={ques} handleChange={handleChange} name='Questions' val={test.questions}/>
+              <MultipleSelect data={ques} handleChange={handleChange} name='Questions' val={test.questions} />
             </div>
           </div>
           <div className="row mt-2 ">
@@ -96,9 +96,9 @@ const test = ({ques}) => {
             </div>
           </div>
         </form>
-        <Alert severity="warning">Remember that a test must have <strong>100%</strong> of questions percentage 🚨</Alert><br/>
+        <Alert severity="warning">Remember that a test must have <strong>100%</strong> of questions percentage 🚨</Alert><br />
       </Container>
-      <br/>
+      <br />
     </div>
   )
 }

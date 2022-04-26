@@ -1,33 +1,70 @@
 import { Button } from '@mui/material'
 import Link from 'next/link'
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import Container from '../../../components/Container'
+import Mixim from '../../../components/Mixim'
 import Question from '../../../components/Question'
 import Title from '../../../components/Title'
 import { testService } from '../../../services/testService'
 import withAuth from '../../../services/withAuth'
+import { getNote } from '../../../utils'
+import { useRouter } from "next/router";
 
 const Exam = ({ test }) => {
+  const router = useRouter()
+  const [state, setanswers] = useState({
+    amount: 0,
+    answers: []
+  })
+
+  useEffect(() => {
+    setanswers({ ...state, amount: test.questions.length })
+  }, [])
+
+  const handleChange = (key, percentage, value) => {
+    setanswers((prev) => ({
+      ...prev,
+      'answers': [
+        ...prev.answers.slice(0, key),
+        {
+          ...prev.answers[key],
+          'value': value.split('-')[0],
+          'percentage': percentage
+        },
+        ...prev.answers.slice(key + 1, prev.answers.length)
+      ]
+    }))
+  }
+
+  const onSubmit = () => {
+    if (state.amount == state.answers.length) {
+      Mixim('Your score in this test is: ' + getNote(state.answers), 'info')
+      router.replace('/home')
+    } else {
+      Mixim('All question are required', 'warning')
+    }
+  }
+
   return (
     <div>
       <Container>
-        <Title title={test.title + " Test 🦥"} description={test.description + " 🐡"} />
+        <Title title={test.title + " Test 🦥"} description={test.description + " 🚀"} />
       </Container>
-      {test.questions.map(q => (
-        <Question key={q.UID} question={q} />
+      {test.questions.map((q, i) => (
+        <Question key={i} index={i} question={q} handleChange={handleChange} />
       ))}
       <Container>
         <div className='row mt-2'>
           <div className='col-md-6 p-2'>
             <Link href={'/home'}>
-            <Button fullWidth color='secondary' variant='outlined'>Back</Button>
+              <Button fullWidth color='secondary' variant='outlined'>Back</Button>
             </Link>
           </div>
           <div className='col-md-6 p-2'>
-            <Button fullWidth color='success' variant='contained'>Finish</Button>
+            <Button onClick={onSubmit} fullWidth color='success' variant='contained'>Finish</Button>
           </div>
         </div>
-      </Container><br/><br/>
+      </Container><br /><br />
     </div>
   )
 }
