@@ -6,24 +6,25 @@ import ListItemText from '@mui/material/ListItemText';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
 import Avatar from '@mui/material/Avatar';
 import Typography from '@mui/material/Typography';
-import AssignmentIcon from '@mui/icons-material/Assignment';
-import { yellow } from '@mui/material/colors';
+import AdminPanelSettingsOutlinedIcon from '@mui/icons-material/AdminPanelSettingsOutlined';
+import { purple } from '@mui/material/colors';
 import { capitalizeFirstLetter } from '../utils';
 import { Grid } from '@mui/material';
+import { userService } from '../services/userService';
 
-export default function UserInfo({ userName, role }) {
+export default function UserInfo({ id, userName }) {
     return (
         <Grid
             container
             direction="column"
-            alignItems="center"
+            alignItems="left"
             justifyContent="center"
         >
-            <List sx={{ width: '100%', maxWidth: 300, bgcolor: 'background.paper', justifyContent: 'center' }}>
+            <List sx={{ width: '100%', maxWidth: 300, bgcolor: 'transparent', justifyContent: 'center' }}>
                 <ListItem alignItems="flex-start">
                     <ListItemAvatar>
-                        <Avatar sx={{ bgcolor: yellow[500] }} >
-                            <AssignmentIcon />
+                        <Avatar sx={{ bgcolor: purple[800] }} >
+                            <AdminPanelSettingsOutlinedIcon />
                         </Avatar>
                     </ListItemAvatar>
                     <ListItemText
@@ -36,9 +37,19 @@ export default function UserInfo({ userName, role }) {
                                     variant="body2"
                                     color="text.primary"
                                 >
+                                    Id:
+                                </Typography>
+                                {" " + id}
+                                <br/>
+                                <Typography
+                                     sx={{ display: 'inline' }}
+                                     component="span"
+                                     variant="body2"
+                                     color="text.primary"
+                                >
                                     Role:
                                 </Typography>
-                                {" " + role}
+                                {" " + userService.get().role}
                             </React.Fragment>
                         }
                     />

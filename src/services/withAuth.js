@@ -2,7 +2,6 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import NavBar from '../components/NavBar'
 
-
 const withAuth = (WrappedComponent) => {
   return (props) => {
     const Router = useRouter();

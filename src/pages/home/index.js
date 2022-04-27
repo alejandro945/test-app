@@ -31,7 +31,6 @@ const dashboard = ({ data }) => {
       <div className='align-items-center mb-4'>
         <UserInfo userName={user.userName} role={user.role} />
       </div>
-      <br/><br/>
     </div>
   )
 

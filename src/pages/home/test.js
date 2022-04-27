@@ -15,7 +15,6 @@ const test = ({ ques }) => {
   const router = useRouter()
 
   const imgs = [
-    '',
     '/img/test-1.jpeg',
     '/img/test-2.jpeg',
     '/img/test-3.jpeg',
@@ -96,7 +95,7 @@ const test = ({ ques }) => {
             </div>
           </div>
         </form>
-        <Alert severity="warning">Remember that a test must have <strong>100%</strong> of questions percentage 🚨</Alert><br />
+        <Alert severity="warning">Remember that a test must have <strong>100%</strong> of questions percentage 🚨</Alert>
       </Container>
       <br />
     </div>
