@@ -28,9 +28,6 @@ const dashboard = ({ data }) => {
           }
         </Grid>
       </Container>
-      <div className='align-items-center mb-4'>
-        <UserInfo userName={user.userName} role={user.role} />
-      </div>
     </div>
   )
 

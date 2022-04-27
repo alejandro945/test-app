@@ -5,11 +5,16 @@ export const userService = {
     logIn,
     logOut,
     get,
-    getUser
+    getUser,
+    getAll
 }
 
 async function getUser(uid) {
-    return fetchWrapper.get('http://localhost:3000/api/profile/' + uid)
+    return fetchWrapper.get('http://localhost:3000/api/users/' + uid)
+}
+
+async function getAll() {
+    return fetchWrapper.get('http://localhost:3000/api/users/')
 }
 
 function get() {

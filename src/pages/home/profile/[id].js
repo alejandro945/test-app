@@ -5,12 +5,12 @@ import UserInfo from '../../../components/UserInfo';
 import { userService } from '../../../services/userService';
 import withAuth from '../../../services/withAuth';
 
-const Profile = ({user}) => {
+const Profile = ({ user }) => {
 
     return (
         <div>
             <Paper elevation={24} sx={{ p: 4, m: 4 }}>
-                <ABreadCrumb />         
+                <ABreadCrumb />
                 <UserInfo id={user.id} userName={user.userName} />
             </Paper>
         </div>
@@ -18,21 +18,18 @@ const Profile = ({user}) => {
 }
 
 export async function getStaticPaths() {
-    return {
-      paths: [
-        // String variant:
-        '/home/profile/1',
-        // Object variant:
-        { params: { id: '1' } },
-      ],
-      fallback: true,
-    }
-  }
+    const res = await userService.getAll()
+    const users = await res.json()
+    const paths = users.map(u => ({
+        params: { id: u.id.toString() }
+    }))
+    return { paths, fallback: false }
+}
 
 export async function getStaticProps({ params }) {
     const res = await userService.getUser(params.id)
     const user = await res.json()
     return { props: { user } }
-  }
+}
 
 export default withAuth(Profile)

@@ -8,7 +8,6 @@ export function capitalizeFirstLetter(string) {
 
 export function getNote(answers){
     var note = 0;
-    console.log(answers);
     answers.map(a => {
         if(a.value == 'true'){
             note += (a.percentage * 5)/100
