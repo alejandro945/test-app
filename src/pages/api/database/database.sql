@@ -1,21 +1,43 @@
-CREATE TABLE STUDENT(
-    id VARCHAR(20) NOT NULL,
-    username VARCHAR(20) NOT NULL,
-    password_u VARCHAR(20) NOT NULL,
-    PRIMARY KEY(id)
+create table student(
+	idS Integer not null,
+	usernameS character varying not null,
+	passwordS character varying not null,
+	codeR Integer not null,
+	primary key (idS)
 );
 
-CREATE TABLE TEACHER(
-	id 	VARCHAR(20) NOT NULL,
-	username VARCHAR(20) NOT NULL,
-	password_t VARCHAR(20) NOT NULL,
-	id_test VARCHAR(20),
-	PRIMARY KEY (id),
-	CONSTRAINT fk_test_id FOREIGN KEY (id_test) 
-	REFERENCES TEST(id_test) 
+create table teacher(
+	idT Integer not null,
+	userNameT character varying not null,
+	passwordT character varying not null,
+	primary key (idT)
 );
 
-CREATE TABLE TEST(
-	id_test VARCHAR(20) NOT NULL,
-	PRIMARY KEY(id_test)
+create table test(
+	uidT character varying not null,
+	accessCode Integer not null,
+	avaible boolean not null,
+	title character varying not null,
+	description character varying,
+	idT Integer not null,
+	primary key(uidT),
+	constraint pk_teacher foreign key(idT) references teacher(idT)
+);
+
+create table question(
+	uidQ character varying not null,
+	description character varying not null,
+	percentage Integer not null,
+	uidT character varying not null,
+	primary key(uidQ),
+	constraint fk_test foreign key(uidT) references test(uidT)
+);
+
+create table answer(
+	uidA character varying not null,
+	isCorrect boolean not null,
+	description character varying not null,
+	uidQ character varying not null,
+	primary key(uidA),
+	constraint fk_question foreign key(uidQ) references question (uidQ)
 );
