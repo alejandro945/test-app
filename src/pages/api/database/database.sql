@@ -1,0 +1,21 @@
+CREATE TABLE STUDENT(
+    id VARCHAR(20) NOT NULL,
+    username VARCHAR(20) NOT NULL,
+    password_u VARCHAR(20) NOT NULL,
+    PRIMARY KEY(id)
+);
+
+CREATE TABLE TEACHER(
+	id 	VARCHAR(20) NOT NULL,
+	username VARCHAR(20) NOT NULL,
+	password_t VARCHAR(20) NOT NULL,
+	id_test VARCHAR(20),
+	PRIMARY KEY (id),
+	CONSTRAINT fk_test_id FOREIGN KEY (id_test) 
+	REFERENCES TEST(id_test) 
+);
+
+CREATE TABLE TEST(
+	id_test VARCHAR(20) NOT NULL,
+	PRIMARY KEY(id_test)
+);
