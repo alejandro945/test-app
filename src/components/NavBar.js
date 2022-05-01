@@ -25,15 +25,15 @@ export default function BottomAppBar({ children }) {
 
     return (
         <React.Fragment>
-            {children}<br/><br/>
+            {children}<br /><br />
             <AppBar position="fixed" color="primary" sx={{ top: 'auto', bottom: 0 }}>
                 <Toolbar>
                     <Link href={'/home/profile/' + user.id}>
-                    <IconButton size="large" color="inherit">
+                        <IconButton size="large" color="inherit">
                             <AssignmentIndOutlinedIcon />
-                    </IconButton>
+                        </IconButton>
                     </Link>
-                    
+
                     <IconButton
                         size="large"
                         aria-label="show 1 new notifications"
@@ -58,7 +58,7 @@ export default function BottomAppBar({ children }) {
                             onClick={handleLogout}
                             color="inherit"
                         >
-                            <AAvatar username={getAvatar(user.userName)} />
+                            <AAvatar username={getAvatar(user.username)} />
                         </IconButton>
                     </Tooltip>
 

@@ -22,7 +22,7 @@ function get() {
 }
 
 async function logIn(user, onResult) {
-    fetchWrapper.post('/api/auth', user).then(({res,msg}) => {
+    fetchWrapper.post('/api/auth', user).then(({ res, msg }) => {
         if (res.status == 200) {
             localStorage.setItem('user', JSON.stringify(msg));
             userService.isAuth = true;

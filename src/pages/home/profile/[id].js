@@ -11,7 +11,7 @@ const Profile = ({ user }) => {
         <div>
             <Paper elevation={24} sx={{ p: 4, m: 4 }}>
                 <ABreadCrumb />
-                <UserInfo id={user.id} userName={user.userName} />
+                <UserInfo id={user.id} username={user.username} />
             </Paper>
         </div>
     )

@@ -9,10 +9,12 @@ import Mixim from "../components/Mixim";
 import { userService } from "../services/userService";
 import { useRouter } from "next/router";
 
+
+
 export default function Home() {
   const router = useRouter()
   const [user, setUser] = useState({
-    userName: '',
+    username: '',
     password: '',
     role: ''
   })
@@ -20,9 +22,9 @@ export default function Home() {
 
   const handleChange = (e) => {
     const { name, value } = e.target
-    if (name === 'userName') {
+    if (name === 'username') {
       let temp = value.toUpperCase()
-      setUser({ ...user, userName: temp })
+      setUser({ ...user, username: temp })
     } else {
       setUser((prev) => ({
         ...prev,
@@ -58,11 +60,11 @@ export default function Home() {
           </Divider>
           <div className="text-center">
             <p>In this section you can get into our test app depending of your university organization role</p>
-            {getAvatar(user.userName) !== '' ? <AAvatar username={getAvatar(user.userName)} /> : ''}
+            {getAvatar(user.username) !== '' ? <AAvatar username={getAvatar(user.username)} /> : ''}
           </div>
           <div className="row mt-3">
             <div className="col-md-4 p-2">
-              <TextField fullWidth name="userName" label="Username" variant="outlined" required={true} size="medium" onChange={handleChange} />
+              <TextField fullWidth name="username" label="username" variant="outlined" required={true} size="medium" onChange={handleChange} />
             </div>
             <div className="col-md-4 p-2">
               <TextField type="password" fullWidth name="password" label="Password" variant="outlined" required={true} size="medium" onChange={handleChange} />

@@ -2,19 +2,19 @@ let data = {
     teachers: [
         {
             id: 1,
-            userName: "TRIANA",
+            username: "TRIANA",
             password: "12345",
             tests: []
         },
         {
             id: 2,
-            userName: "REYES",
+            username: "REYES",
             password: "rpc",
             tests: []
         },
         {
             id: 3,
-            userName: "JUANA",
+            username: "JUANA",
             password: "345",
             tests: []
         }
@@ -22,12 +22,12 @@ let data = {
     students: [
         {
             id: 4,
-            userName: "ALEJO",
+            username: "ALEJO",
             password: "23",
         },
         {
             id: 5,
-            userName: "GABRIEL",
+            username: "GABRIEL",
             password: "45",
         }
 

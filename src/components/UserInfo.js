@@ -12,7 +12,7 @@ import { capitalizeFirstLetter } from '../utils';
 import { Grid } from '@mui/material';
 import { userService } from '../services/userService';
 
-export default function UserInfo({ id, userName }) {
+export default function UserInfo({ id, username }) {
     return (
         <Grid
             container
@@ -28,7 +28,7 @@ export default function UserInfo({ id, userName }) {
                         </Avatar>
                     </ListItemAvatar>
                     <ListItemText
-                        primary={"Username: " + capitalizeFirstLetter(userName)}
+                        primary={"username: " + capitalizeFirstLetter(username)}
                         secondary={
                             <React.Fragment>
                                 <Typography
@@ -40,12 +40,12 @@ export default function UserInfo({ id, userName }) {
                                     Id:
                                 </Typography>
                                 {" " + id}
-                                <br/>
+                                <br />
                                 <Typography
-                                     sx={{ display: 'inline' }}
-                                     component="span"
-                                     variant="body2"
-                                     color="text.primary"
+                                    sx={{ display: 'inline' }}
+                                    component="span"
+                                    variant="body2"
+                                    color="text.primary"
                                 >
                                     Role:
                                 </Typography>

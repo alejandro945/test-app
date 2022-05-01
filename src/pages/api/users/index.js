@@ -1,13 +1,11 @@
-import data from "../../../data"
 import { apiHandler } from "../../../utils/api-handler"
+import { conn } from "../../../utils/database"
 
 export default apiHandler({
     get: getUsers,
 })
 
-function getUsers(_, res) {
-    let users = []
-    data.teachers.map(t=>users.push(t))
-    data.students.map(s=>users.push(s))
-    res.status(200).json(users)
-}
+async function getUsers(_, res) {
+    let users = [await conn.query('SELECT * FROM student'), await conn.query('SELECT * from teacher')];
+    res.status(200).json(users);
+}   

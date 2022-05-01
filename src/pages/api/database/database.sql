@@ -1,43 +1,49 @@
 create table student(
-	idS Integer not null,
-	usernameS character varying not null,
-	passwordS character varying not null,
-	codeR Integer not null,
-	primary key (idS)
+	id Integer not null,
+	username character varying not null,
+	password character varying not null,
+	primary key (id)
 );
 
 create table teacher(
-	idT Integer not null,
-	userNameT character varying not null,
-	passwordT character varying not null,
-	primary key (idT)
+	id Integer not null,
+	username character varying not null,
+	password character varying not null,
+	primary key (id)
 );
 
 create table test(
-	uidT character varying not null,
-	accessCode Integer not null,
+	UID character varying not null,
+	accesscode Integer not null,
 	avaible boolean not null,
+	img character varying,
 	title character varying not null,
 	description character varying,
-	idT Integer not null,
-	primary key(uidT),
-	constraint pk_teacher foreign key(idT) references teacher(idT)
+	id Integer not null,
+	primary key(UID),
+	constraint pk_teacher foreign key(id) references teacher(id)
 );
 
 create table question(
-	uidQ character varying not null,
+	UID character varying not null,
 	description character varying not null,
 	percentage Integer not null,
 	uidT character varying not null,
-	primary key(uidQ),
-	constraint fk_test foreign key(uidT) references test(uidT)
+	primary key(UID),
+	constraint fk_test foreign key(uidT) references test(UID)
 );
 
 create table answer(
-	uidA character varying not null,
+	UID character varying not null,
 	isCorrect boolean not null,
 	description character varying not null,
 	uidQ character varying not null,
-	primary key(uidA),
-	constraint fk_question foreign key(uidQ) references question (uidQ)
+	primary key(UID),
+	constraint fk_question foreign key(uidQ) references question (UID)
 );
+
+insert into teacher values(1, 'TRIANA', '12345');
+insert into teacher values(2, 'REYES', 'rpc');
+insert into teacher values(3, 'JUANA', '345');
+insert into student values(4, 'ALEJO', '23');
+insert into student values(5, 'GABRIEL', '45');
