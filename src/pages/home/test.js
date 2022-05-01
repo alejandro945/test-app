@@ -50,7 +50,6 @@ const test = ({ ques }) => {
         Mixim(m, type)
         router.replace('/home')
       })
-
     } else {
       Mixim('Missing or exceed percentage', 'warning')
     }
@@ -69,7 +68,9 @@ const test = ({ ques }) => {
       <Container>
         <Title title="Tests ❄️" description="End your exam in the most comfortable way by adding the number of questions you want. Fascinating right? 🐳" />
       </Container>
+
       <AStepper step={2} />
+
       <Container>
         <form onSubmit={handleSubmit}>
           <div className="row mt-2">

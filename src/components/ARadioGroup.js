@@ -10,7 +10,7 @@ export default function ARadioGroup({ data, handle }) {
             <FormControl>
                 <RadioGroup name="use-radio-group" onChange={handle}>
                     {data.map(e => (
-                        <FormControlLabel key={e.UID} value={e.isCorrect + "-" + e.description} label={e.description} control={<Radio color='secondary' />} />
+                        <FormControlLabel key={e.uid} value={e.iscorrect + "-" + e.description} label={e.description} control={<Radio color='secondary' />} />
                     ))}
                 </RadioGroup>
             </FormControl>

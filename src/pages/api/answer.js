@@ -1,6 +1,5 @@
-import data from '../../data';
 import { apiHandler } from '../../utils/api-handler';
-
+import { conn } from "../../../utils/database";
 const { v4: uuidv4 } = require('uuid');
 
 export default apiHandler({
@@ -8,13 +7,15 @@ export default apiHandler({
     post: addAnswer,
 })
 
-function getAnswers(_, res) {
-    res.status(200).json(data.answers)
+async function getAnswers(_, res) {
+    let answers = await conn.query('SELECT * FROM answer');
+    res.status(200).json(answers.rows)
 }
 
-function addAnswer(req, res) {
-    const req_data = req.body;
-    const answer = { 'UID': uuidv4(), ...req_data }
-    data.answers.push(answer)
-    res.status(200).json({ "msg": "Succesfully answer creation" })
+async function addAnswer(req, res) {
+    const answer = { 'uid': uuidv4(), ...req.body }
+    let results = await conn.query('INSERT INTO answer VALUES ($1, $2, $3, $4)', [answer.uid, answer.iscorrect, answer.description, null]);
+    if (results.rows[0]) {
+        res.status(200).json({ "msg": "Succesfully answer creation" })
+    }
 }

@@ -9,7 +9,7 @@ const withAuth = (WrappedComponent) => {
 
     useEffect(() => {
       const accessToken = localStorage.getItem("user");
-      // if no accessToken was found,then we redirect to "/" page.
+      // if no value on localhost was found,then we redirect to "/" page.
       if (!accessToken) {
         Router.replace("/");
       } else {

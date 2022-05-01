@@ -12,7 +12,7 @@ const answer = () => {
 
   const initialState ={
     description: '',
-    isCorrect: false
+    iscorrect: false
   }
 
   const [answer, setAnswer] = useState(initialState)
@@ -23,7 +23,7 @@ const answer = () => {
 
   const handleChange = (event) => {
     const { name, value, checked } = event.target
-    const val = (name === 'isCorrect') ? checked : value
+    const val = (name === 'iscorrect') ? checked : value
     setAnswer({
       ...answer,
       [name]: val,
@@ -52,7 +52,7 @@ const answer = () => {
             </div>
             <div className="col-md-4 p-2">
               <FormControlLabel
-                control={<Switch checked={answer.isCorrect} onChange={handleChange} color="warning" name="isCorrect" />}
+                control={<Switch checked={answer.iscorrect} onChange={handleChange} color="warning" name="iscorrect" />}
                 label="Is Correct?"
                 labelPlacement="start"
               />

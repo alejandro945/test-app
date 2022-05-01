@@ -64,7 +64,7 @@ export default function Home() {
           </div>
           <div className="row mt-3">
             <div className="col-md-4 p-2">
-              <TextField fullWidth name="username" label="username" variant="outlined" required={true} size="medium" onChange={handleChange} />
+              <TextField fullWidth name="username" label="Username" variant="outlined" required={true} size="medium" onChange={handleChange} />
             </div>
             <div className="col-md-4 p-2">
               <TextField type="password" fullWidth name="password" label="Password" variant="outlined" required={true} size="medium" onChange={handleChange} />

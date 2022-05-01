@@ -20,8 +20,6 @@ const question = ({ ans }) => {
   }
   const [question, setQuestion] = useState(initialQuestion);
 
-
-
   const handleChange = (event) => {
     const { name, value } = event.target
     setQuestion({
@@ -49,7 +47,7 @@ const question = ({ ans }) => {
       size = true
     }
     question.answers.map((a) => {
-      if (a.isCorrect) correct++
+      if (a.iscorrect) correct++
     })
     return (size && (correct == 1))
   }

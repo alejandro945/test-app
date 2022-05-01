@@ -28,7 +28,7 @@ create table question(
 	UID character varying not null,
 	description character varying not null,
 	percentage Integer not null,
-	uidT character varying not null,
+	uidT character varying,
 	primary key(UID),
 	constraint fk_test foreign key(uidT) references test(UID)
 );
@@ -37,7 +37,7 @@ create table answer(
 	UID character varying not null,
 	isCorrect boolean not null,
 	description character varying not null,
-	uidQ character varying not null,
+	uidQ character varying,
 	primary key(UID),
 	constraint fk_question foreign key(uidQ) references question (UID)
 );

@@ -3,7 +3,6 @@ import React from 'react'
 import ACard from '../../components/ACard';
 import Container from '../../components/Container';
 import Title from '../../components/Title';
-import UserInfo from '../../components/UserInfo';
 import { testService } from '../../services/testService';
 import { userService } from '../../services/userService';
 import withAuth from '../../services/withAuth'
@@ -33,10 +32,8 @@ const dashboard = ({ data }) => {
 
 }
 export async function getServerSideProps() {
-  // Fetch data from external API
   const res = await testService.getTests()
   const data = await res.json()
-  // Pass data to the page via props
   return { props: { data } }
 }
 

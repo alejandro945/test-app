@@ -54,8 +54,8 @@ function addQuestion(question, onResult) {
     })
 }
 
-function removeTest(UID, onResult) {
-    fetchWrapper.delete('/api/tests/', UID).then(({ res, msg }) => {
+function removeTest(uid, onResult) {
+    fetchWrapper.delete('/api/tests/', uid).then(({ res, msg }) => {
         if (res.status == 200) {
             onResult({ m: msg, type: 'success' });
         } else {

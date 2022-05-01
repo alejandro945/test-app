@@ -13,7 +13,7 @@ export default class MyDocument extends Document {
                     <meta name="theme-color"
                         content={theme.palette.primary.main} />
                     <link rel="shortcut icon"
-                        href="/static/favicon.ico" />
+                        href="/favicon.ico" />
                     {/*CDN Injection */}
                     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossOrigin="anonymous"></link>
                     <link
@@ -34,12 +34,10 @@ export default class MyDocument extends Document {
 }
 
 // `getInitialProps` belongs to `_document` (instead of `_app`),
-// it's compatible with static-site generation (SSG).
 MyDocument.getInitialProps = async (ctx) => {
     const originalRenderPage = ctx.renderPage;
     // You can consider sharing the same emotion cache between
     // all the SSR requests to speed up performance.
-    // However, be aware that it can have global side effects.
     const cache = createEmotionCache();
     const { extractCriticalToChunks } = createEmotionServer(cache);
 
@@ -54,15 +52,12 @@ MyDocument.getInitialProps = async (ctx) => {
     const initialProps = await Document.getInitialProps(ctx);
 
     // This is important. It prevents emotion to render invalid HTML.
-    // See
-    // https://github.com/mui-org/material-ui/issues/26561#issuecomment-855286153
 
     const emotionStyles = extractCriticalToChunks(initialProps.html);
     const emotionStyleTags = emotionStyles.styles.map((style) => (
         <style
             data-emotion={`${style.key} ${style.ids.join(' ')}`}
             key={style.key}
-
             // eslint-disable-next-line react/no-danger
             dangerouslySetInnerHTML={{ __html: style.css }}
         />

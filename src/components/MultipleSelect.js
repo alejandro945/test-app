@@ -8,7 +8,7 @@ export default function MultipleSelect({ data, name, handleChange }) {
       multiple
       id="tags-outlined"
       options={data}
-      getOptionLabel={(option) => (option.isCorrect!=null) ? option.description + ' - ' + option.isCorrect : option.description + ' - ' + option.percentage}
+      getOptionLabel={(option) => (option.iscorrect!=null) ? option.description + ' - ' + option.iscorrect : option.description + ' - ' + option.percentage}
       filterSelectedOptions
       onChange={(event, value) => (handleChange({ target: { name, value: value } }))}
       renderInput={(params) => (

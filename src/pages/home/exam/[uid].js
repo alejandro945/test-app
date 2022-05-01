@@ -69,13 +69,12 @@ const Exam = ({ test }) => {
   )
 }
 
-// This function gets called at build time
 export async function getStaticPaths() {
   const res = await testService.getTests()
   const tests = await res.json()
   // Get the paths we want to pre-render based on posts
   const paths = tests.map((test) => ({
-    params: { uid: test.UID.toString() },
+    params: { uid: test.uid.toString() },
   }))
   // { fallback: false } means other routes should 404.
   return { paths, fallback: false }
