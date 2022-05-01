@@ -17,9 +17,10 @@ const ACard = ({ test }) => {
     const router = useRouter();
 
     const handleRemove = () => {
-        testService.removeTest(test.UID, ({ m, type }) => {
+        testService.removeTest(test.uid, ({ m, type }) => {
             Mixim(m, type)
         })
+        router.reload();
     }
 
     const handleModal = () => {
@@ -27,7 +28,7 @@ const ACard = ({ test }) => {
             testService.accessCode({ test, code }, ({ m, type }) => {
                 Mixim(m, type);
                 if (type == 'success') {
-                    router.replace('home/exam/' + test.UID)
+                    router.replace('home/exam/' + test.uid)
                 }
             });
         }));

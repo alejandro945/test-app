@@ -10,9 +10,11 @@ import withAuth from '../../services/withAuth'
 import AirplaneTicketOutlinedIcon from '@mui/icons-material/AirplaneTicketOutlined';
 import Mixim from '../../components/Mixim'
 import { useRouter } from "next/router";
+import { userService } from '../../services/userService'
 
 const test = ({ ques }) => {
   const router = useRouter()
+  const user = userService.get();
 
   const imgs = [
     '/img/test-1.jpeg',
@@ -44,7 +46,7 @@ const test = ({ ques }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (percentageValidation()) {
-      testService.addTest(test, ({ m, type }) => {
+      testService.addTest({ test, user }, ({ m, type }) => {
         Mixim(m, type)
         router.replace('/home')
       })

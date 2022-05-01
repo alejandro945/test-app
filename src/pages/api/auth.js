@@ -6,7 +6,7 @@ export default async function handler(req, res) {
 
         const { username, password, role } = req.body
         if (role == "Student") {
-            conn.query('SELECT * FROM student WHERE username = $1 AND password = $2', [username, password], (err, result) => {;
+            conn.query('SELECT * FROM student WHERE username = $1 AND password = $2', [username, password], (err, result) => {
                 handleResponse(err, result, res, role);
             });
         } else {
