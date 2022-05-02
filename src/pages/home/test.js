@@ -17,6 +17,7 @@ const test = ({ ques }) => {
   const user = userService.get();
 
   const imgs = [
+    '',
     '/img/test-1.jpeg',
     '/img/test-2.jpeg',
     '/img/test-3.jpeg',

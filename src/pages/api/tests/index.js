@@ -15,17 +15,12 @@ async function getTests(_, res) {
 }
 
 async function addTest(req, res) {
-    const { test, user } = req.body
-    let setter = await setQuestionsToTest(test)
-    if (setter.rows[0]) {
-        let results = await conn.query('INSERT INTO test VALUES ($1, $2, $3, $4, $5, $6, $7)', [uuidv4(), test.accesscode, true, test.img,
-        test.title, test.description, user.id]);
-        if (results.rows[0]) {
-            res.status(200).json({ "msg": "Succesfully test creation" })
-        } else {
-            res.status(300).json({ "msg": "Server Error" });
-        }
-    }
+    const { test, user } = req.body;
+    const newTest = { ...test, uid: uuidv4() }
+    conn.query('INSERT INTO test VALUES ($1, $2, $3, $4, $5, $6, $7)', [newTest.uid, test.accesscode, true, test.img,
+    test.title, test.description, user.id]);
+    await setQuestionsToTest(newTest);
+    res.status(200).json({ "msg": "Succesfully test creation" })
 }
 
 async function removeTest(req, res) {
@@ -48,6 +43,6 @@ async function validateCode(req, res) {
 
 async function setQuestionsToTest(test) {
     test.questions.map(q => {
-        await conn.query('UPDATE question SET uidT = $1 WHERE uid = $2', [test.uid, q.uid])
+        conn.query('UPDATE question SET uidT = $1 WHERE uid = $2', [test.uid, q.uid])
     })
 }
