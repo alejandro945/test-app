@@ -1,5 +1,13 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app). 
 
+<div align="center">
+<h2> Welcome to our Next JS proyect! <img src="https://github.com/ABSphreak/ABSphreak/blob/master/gifs/Hi.gif" width="30px"></h2>
+</div> 
+
+# Test App ![Status badge](https://img.shields.io/badge/finished-red)
+
+The application has two roles, these two roles are teachers and students. For this reason at the time of login we can choose the desired role.
+
 ## Getting Started
 
 To start you must have Node.Js installed on your machine. If you don't have it installed, you can [click here](https://nodejs.org/es/download/).
